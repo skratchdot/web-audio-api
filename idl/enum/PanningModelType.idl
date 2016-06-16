@@ -1,0 +1,22 @@
+<pre id="enum-PanningModelType" class="idl">
+enum PanningModelType {
+    "equalpower",
+    "HRTF"
+};
+</pre>
+<table class="simple">
+  <tr>
+    <th colspan="2">Enumeration description:</th>
+  </tr>
+  <tr>
+    <td><dfn for="PanningModelType">equalpower</dfn></td>
+    <td>A simple and efficient spatialization algorithm using equal-power
+            panning.</td>
+</tr>
+    <tr>
+    <td><dfn for="PanningModelType">HRTF</dfn></td>
+    <td>A higher quality spatialization algorithm using a convolution with
+            measured impulse responses from human subjects. This panning method
+            renders stereo output.</td>
+</tr>
+</table>

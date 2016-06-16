@@ -1,0 +1,23 @@
+<pre id="enum-ChannelInterpretation" class="idl">
+enum ChannelInterpretation {
+    "speakers",
+    "discrete"
+};
+</pre>
+<table class="simple">
+  <tr>
+    <th colspan="2">Enumeration description:</th>
+  </tr>
+  <tr>
+    <td><dfn for="ChannelInterpretation">speakers</dfn></td>
+    <td>use <a href="#ChannelLayouts">up-down-mix equations for
+            mono/stereo/quad/5.1</a>. In cases where the number of channels do
+            not match any of these basic speaker layouts, revert to &quot;discrete&quot;.</td>
+</tr>
+    <tr>
+    <td><dfn for="ChannelInterpretation">discrete</dfn></td>
+    <td>Up-mix by filling channels until they run out then zero out
+            remaining channels. down-mix by filling as many channels as
+            possible, then dropping remaining channels.</td>
+</tr>
+</table>

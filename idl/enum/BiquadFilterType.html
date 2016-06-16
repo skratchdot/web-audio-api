@@ -1,0 +1,283 @@
+<dl title="enum BiquadFilterType" class="idl">
+          <dt>
+            lowpass
+          </dt>
+          <dd>
+            <p>
+              A <a href="https://en.wikipedia.org/wiki/Low-pass_filter">lowpass
+              filter</a> allows frequencies below the cutoff frequency to pass
+              through and attenuates frequencies above the cutoff. It
+              implements a standard second-order resonant lowpass filter with
+              12dB/octave rolloff.
+            </p>
+            <blockquote>
+              <dl>
+                <dt>
+                  frequency
+                </dt>
+                <dd>
+                  The cutoff frequency
+                </dd>
+                <dt>
+                  Q
+                </dt>
+                <dd>
+                  Controls how peaked the response will be at the cutoff
+                  frequency. A large value makes the response more peaked.
+                  Please note that for this filter type, this value is not a
+                  traditional Q, but is a resonance value in decibels.
+                </dd>
+                <dt>
+                  gain
+                </dt>
+                <dd>
+                  Not used in this filter type
+                </dd>
+              </dl>
+            </blockquote>
+          </dd>
+          <dt>
+            highpass
+          </dt>
+          <dd>
+            <p>
+              A <a href="https://en.wikipedia.org/wiki/High-pass_filter">highpass
+              filter</a> is the opposite of a lowpass filter. Frequencies above
+              the cutoff frequency are passed through, but frequencies below
+              the cutoff are attenuated. It implements a standard second-order
+              resonant highpass filter with 12dB/octave rolloff.
+            </p>
+            <blockquote>
+              <dl>
+                <dt>
+                  frequency
+                </dt>
+                <dd>
+                  The cutoff frequency below which the frequencies are
+                  attenuated
+                </dd>
+                <dt>
+                  Q
+                </dt>
+                <dd>
+                  Controls how peaked the response will be at the cutoff
+                  frequency. A large value makes the response more peaked.
+                  Please note that for this filter type, this value is not a
+                  traditional Q, but is a resonance value in decibels.
+                </dd>
+                <dt>
+                  gain
+                </dt>
+                <dd>
+                  Not used in this filter type
+                </dd>
+              </dl>
+            </blockquote>
+          </dd>
+          <dt>
+            bandpass
+          </dt>
+          <dd>
+            <p>
+              A <a href="https://en.wikipedia.org/wiki/Band-pass_filter">bandpass
+              filter</a> allows a range of frequencies to pass through and
+              attenuates the frequencies below and above this frequency range.
+              It implements a second-order bandpass filter.
+            </p>
+            <blockquote>
+              <dl>
+                <dt>
+                  frequency
+                </dt>
+                <dd>
+                  The center of the frequency band
+                </dd>
+                <dt>
+                  <a href="https://en.wikipedia.org/wiki/Q_factor">Q</a>
+                </dt>
+                <dd>
+                  Controls the width of the band. The width becomes narrower as
+                  the Q value increases.
+                </dd>
+                <dt>
+                  gain
+                </dt>
+                <dd>
+                  Not used in this filter type
+                </dd>
+              </dl>
+            </blockquote>
+          </dd>
+          <dt>
+            lowshelf
+          </dt>
+          <dd>
+            <p>
+              The lowshelf filter allows all frequencies through, but adds a
+              boost (or attenuation) to the lower frequencies. It implements a
+              second-order lowshelf filter.
+            </p>
+            <blockquote>
+              <dl>
+                <dt>
+                  frequency
+                </dt>
+                <dd>
+                  The upper limit of the frequences where the boost (or
+                  attenuation) is applied.
+                </dd>
+                <dt>
+                  <a href="https://en.wikipedia.org/wiki/Q_factor">Q</a>
+                </dt>
+                <dd>
+                  Not used in this filter type.
+                </dd>
+                <dt>
+                  gain
+                </dt>
+                <dd>
+                  The boost, in dB, to be applied. If the value is negative,
+                  the frequencies are attenuated.
+                </dd>
+              </dl>
+            </blockquote>
+          </dd>
+          <dt>
+            highshelf
+          </dt>
+          <dd>
+            <p>
+              The highshelf filter is the opposite of the lowshelf filter and
+              allows all frequencies through, but adds a boost to the higher
+              frequencies. It implements a second-order highshelf filter
+            </p>
+            <blockquote>
+              <dl>
+                <dt>
+                  frequency
+                </dt>
+                <dd>
+                  The lower limit of the frequences where the boost (or
+                  attenuation) is applied.
+                </dd>
+                <dt>
+                  <a href="https://en.wikipedia.org/wiki/Q_factor">Q</a>
+                </dt>
+                <dd>
+                  Not used in this filter type.
+                </dd>
+                <dt>
+                  gain
+                </dt>
+                <dd>
+                  The boost, in dB, to be applied. If the value is negative,
+                  the frequencies are attenuated.
+                </dd>
+              </dl>
+            </blockquote>
+          </dd>
+          <dt>
+            peaking
+          </dt>
+          <dd>
+            <p>
+              The peaking filter allows all frequencies through, but adds a
+              boost (or attenuation) to a range of frequencies.
+            </p>
+            <blockquote>
+              <dl>
+                <dt>
+                  frequency
+                </dt>
+                <dd>
+                  The center frequency of where the boost is applied.
+                </dd>
+                <dt>
+                  <a href="https://en.wikipedia.org/wiki/Q_factor">Q</a>
+                </dt>
+                <dd>
+                  Controls the width of the band of frequencies that are
+                  boosted. A large value implies a narrow width.
+                </dd>
+                <dt>
+                  gain
+                </dt>
+                <dd>
+                  The boost, in dB, to be applied. If the value is negative,
+                  the frequencies are attenuated.
+                </dd>
+              </dl>
+            </blockquote>
+          </dd>
+          <dt>
+            notch
+          </dt>
+          <dd>
+            <p>
+              The notch filter (also known as a <a href="https://en.wikipedia.org/wiki/Band-stop_filter">band-stop or
+              band-rejection filter</a>) is the opposite of a bandpass filter.
+              It allows all frequencies through, except for a set of
+              frequencies.
+            </p>
+            <blockquote>
+              <dl>
+                <dt>
+                  frequency
+                </dt>
+                <dd>
+                  The center frequency of where the notch is applied.
+                </dd>
+                <dt>
+                  <a href="https://en.wikipedia.org/wiki/Q_factor">Q</a>
+                </dt>
+                <dd>
+                  Controls the width of the band of frequencies that are
+                  attenuated. A large value implies a narrow width.
+                </dd>
+                <dt>
+                  gain
+                </dt>
+                <dd>
+                  Not used in this filter type.
+                </dd>
+              </dl>
+            </blockquote>
+          </dd>
+          <dt>
+            allpass
+          </dt>
+          <dd>
+            <p>
+              An <a href="https://en.wikipedia.org/wiki/All-pass_filter#Digital_Implementation">
+              allpass filter</a> allows all frequencies through, but changes
+              the phase relationship between the various frequencies. It
+              implements a second-order allpass filter
+            </p>
+            <blockquote>
+              <dl>
+                <dt>
+                  frequency
+                </dt>
+                <dd>
+                  The frequency where the center of the phase transition
+                  occurs. Viewed another way, this is the frequency with
+                  maximal <a href="https://en.wikipedia.org/wiki/Group_delay">group delay</a>.
+                </dd>
+                <dt>
+                  <a href="https://en.wikipedia.org/wiki/Q_factor">Q</a>
+                </dt>
+                <dd>
+                  Controls how sharp the phase transition is at the center
+                  frequency. A larger value implies a sharper transition and a
+                  larger group delay.
+                </dd>
+                <dt>
+                  gain
+                </dt>
+                <dd>
+                  Not used in this filter type.
+                </dd>
+              </dl>
+            </blockquote>
+          </dd>
+        </dl>

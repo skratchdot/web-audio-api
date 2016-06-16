@@ -1,0 +1,113 @@
+<dl title="interface AudioBuffer" class="idl">
+          <dt>
+            readonly attribute float sampleRate
+          </dt>
+          <dd>
+            The sample-rate for the PCM audio data in samples per second.
+          </dd>
+          <dt>
+            readonly attribute unsigned long length
+          </dt>
+          <dd>
+            Length of the PCM audio data in sample-frames.
+          </dd>
+          <dt>
+            readonly attribute double duration
+          </dt>
+          <dd>
+            Duration of the PCM audio data in seconds.
+          </dd>
+          <dt>
+            readonly attribute unsigned long numberOfChannels
+          </dt>
+          <dd>
+            The number of discrete audio channels.
+          </dd>
+          <dt>
+            Float32Array getChannelData()
+          </dt>
+          <dd>
+            Returns the <code>Float32Array</code> representing the PCM audio
+            data for the specific channel.
+            <dl class="parameters">
+              <dt>
+                unsigned long channel
+              </dt>
+              <dd>
+                This parameter is an index representing the particular channel
+                to get data for. An index value of 0 represents the first
+                channel. <span class="synchronous">This index value MUST be
+                less than <code>numberOfChannels</code> or an IndexSizeError
+                exception MUST be thrown.</span>
+              </dd>
+            </dl>
+          </dd>
+          <dt>
+            void copyFromChannel()
+          </dt>
+          <dd>
+            The <code>copyFromChannel</code> method copies the samples from the
+            specified channel of the <a>AudioBuffer</a> to the
+            <code>destination</code> array.
+            <dl class="parameters">
+              <dt>
+                Float32Array destination
+              </dt>
+              <dd>
+                The array the channel data will be copied to.
+              </dd>
+              <dt>
+                unsigned long channelNumber
+              </dt>
+              <dd>
+                The index of the channel to copy the data from. If
+                <code>channelNumber</code> is greater or equal than the number
+                of channel of the <a>AudioBuffer</a>, an
+                <code>IndexSizeError</code> MUST be thrown.
+              </dd>
+              <dt>
+                optional unsigned long startInChannel = 0
+              </dt>
+              <dd>
+                An optional offset to copy the data from. If
+                <code>startInChannel</code> is greater than the
+                <code>length</code> of the <a>AudioBuffer</a>, an
+                <code>IndexSizeError</code> MUST be thrown.
+              </dd>
+            </dl>
+          </dd>
+          <dt>
+            void copyToChannel()
+          </dt>
+          <dd>
+            The <code>copyToChannel</code> method copies the samples to the
+            specified channel of the <a>AudioBuffer</a>, from the
+            <code>source</code> array.
+            <dl class="parameters">
+              <dt>
+                Float32Array source
+              </dt>
+              <dd>
+                The array the channel data will be copied from.
+              </dd>
+              <dt>
+                unsigned long channelNumber
+              </dt>
+              <dd>
+                The index of the channel to copy the data to. If
+                <code>channelNumber</code> is greater or equal than the number
+                of channel of the <a>AudioBuffer</a>, an
+                <code>IndexSizeError</code> MUST be thrown.
+              </dd>
+              <dt>
+                optional unsigned long startInChannel = 0
+              </dt>
+              <dd>
+                An optional offset to copy the data to. If
+                <code>startInChannel</code> is greater than the
+                <code>length</code> of the <a>AudioBuffer</a>, an
+                <code>IndexSizeError</code> MUST be thrown.
+              </dd>
+            </dl>
+          </dd>
+        </dl>

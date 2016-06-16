@@ -1,0 +1,101 @@
+<dl title="interface AudioWorkerGlobalScope : DedicatedWorkerGlobalScope" class="idl">
+            <dt>
+              readonly attribute float sampleRate
+            </dt>
+            <dd>
+              The sample rate of the host <a>AudioContext</a> (since inside the
+              <code>Worker</code> scope, the user will not have direct access
+              to the <a>AudioContext</a>.
+            </dd>
+            <dt>
+              AudioParam addParameter(DOMString name, float defaultValue)
+            </dt>
+            <dd>
+              <p>
+                Causes a correspondingly-named read-only <a>AudioParam</a> to
+                be present on previously-created and subsequently-created
+                <a>AudioWorkerNode</a>s created by this factory, and a
+                correspondingly-named read-only <a>Float32Array</a> to be
+                present on the <a><code>parameters</code></a> object exposed on
+                the <a>AudioProcessEvent</a> on subsequent audio processing
+                events for nodes created from this factory.
+              </p>
+              <p>
+                It is purposeful that AudioParams can be added (or removed)
+                from an Audio Worker from either the control thread or the
+                worker script; this enables immediate creation of worker-based
+                nodes and their prototypes, but also enables packaging an
+                entire worker including its AudioParam configuration into a
+                single script. It is recommended that nodes be used only after
+                the AudioWorkerNode&apos;s oninitialized has been called, in order
+                to allow the worker script to configure the node.
+              </p>
+              <p>
+                The <code>name</code> parameter is the name used for the
+                read-only AudioParam added to the AudioWorkerNode, and the name
+                used for the read-only <code>Float32Array</code> that will be
+                present on the <a><code>parameters</code></a> object exposed on
+                subsequent <a>AudioProcessEvent</a>s.
+              </p>
+              <p>
+                The <dfn id="dfn-defaultValue">defaultValue</dfn> parameter is
+                the default value for the <a>AudioParam</a>&apos;s <a>value</a>
+                attribute, as well as therefore the default value that will
+                appear in the Float32Array in the worker script (if no other
+                parameter changes or connections affect the value).
+              </p>
+            </dd>
+            <dt>
+              void removeParameter(DOMString name)
+            </dt>
+            <dd>
+              <p>
+                Removes a previously-added parameter named <code>name</code>
+                from nodes processed by this factory. This will also remove the
+                correspondingly-named read-only <a>AudioParam</a> from the
+                <a>AudioWorkerNode</a>, and will remove the
+                correspondingly-named read-only <a>Float32Array</a> from the
+                <a>AudioProcessEvent</a>&apos;s <a><code>parameters</code></a>
+                member on subsequent audio processing events. <span class="synchronous">A NotFoundError exception MUST be thrown if no
+                parameter with that name exists on this node.</span>
+              </p>
+              <p>
+                The <code>name</code> parameter identifies the parameter to be
+                removed.
+              </p>
+            </dd>
+            <dt>
+              attribute EventHandler onaudioprocess
+            </dt>
+            <dd>
+              A property used to set the <code>EventHandler</code> (described
+              in [[!HTML]]) for the <a href="#audioprocess-worker"><code>audioprocess</code></a> event that
+              is dispatched to <a><code>AudioWorkerGlobalScope</code></a> to
+              process audio while the associated nodes are connected (to at
+              least one input or output). An event of type
+              <a><code>AudioProcessEvent</code></a> will be dispatched to the
+              event handler.
+            </dd>
+            <dt>
+              attribute EventHandler onnodecreate
+            </dt>
+            <dd>
+              A property used to set the <code>EventHandler</code> (described
+              in [[!HTML]]) for the <a href="#audioprocess-worker"><code>nodecreate</code></a> event that is
+              dispatched to <a><code>AudioWorkerGlobalScope</code></a> when a
+              new <a><code>AudioWorkerNode</code></a> has been created. This
+              enables the scope to do node-level initialization of the
+              <a>AudioNodeProcessor</a> object. An event of type
+              <a><code>AudioWorkerNodeCreationEvent</code></a> will be
+              dispatched to the event handler.
+            </dd>
+            <dt>
+              readonly attribute AudioWorkerParamDescriptor[] parameters
+            </dt>
+            <dd>
+              This array contains descriptors for each of the current
+              parameters on nodes created in this AudioWorkerGlobalScope. This
+              enables audio worker implementations to easily iterate over the
+              AudioParam names and default values.
+            </dd>
+          </dl>

@@ -1,0 +1,51 @@
+<dl title="interface DynamicsCompressorNode : AudioNode" class="idl">
+          <dt>
+            readonly attribute AudioParam threshold
+          </dt>
+          <dd>
+            The decibel value above which the compression will start taking
+            effect. Its default <code>value</code> is -24. Its <a>nominal
+            range</a> is [-100, 0].
+          </dd>
+          <dt>
+            readonly attribute AudioParam knee
+          </dt>
+          <dd>
+            A decibel value representing the range above the threshold where
+            the curve smoothly transitions to the &quot;ratio&quot; portion. Its default
+            <code>value</code> is 30. Its <a>nominal range</a> is [0, 40].
+          </dd>
+          <dt>
+            readonly attribute AudioParam ratio
+          </dt>
+          <dd>
+            The amount of dB change in input for a 1 dB change in output. Its
+            default <code>value</code> is 12. Its <a>nominal range</a> is [1,
+            20].
+          </dd>
+          <dt>
+            readonly attribute float reduction
+          </dt>
+          <dd>
+            A read-only decibel value for metering purposes, representing the
+            current amount of gain reduction that the compressor is applying to
+            the signal. If fed no signal the value will be 0 (no gain
+            reduction).
+          </dd>
+          <dt>
+            readonly attribute AudioParam attack
+          </dt>
+          <dd>
+            The amount of time (in seconds) to reduce the gain by 10dB. Its
+            default <code>value</code> is 0.003. Its <a>nominal range</a> is
+            [0, 1].
+          </dd>
+          <dt>
+            readonly attribute AudioParam release
+          </dt>
+          <dd>
+            The amount of time (in seconds) to increase the gain by 10dB. Its
+            default <code>value</code> is 0.250. Its <a>nominal range</a> is
+            [0, 1].
+          </dd>
+        </dl>

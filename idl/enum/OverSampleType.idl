@@ -1,0 +1,24 @@
+<pre id="enum-OverSampleType" class="idl">
+enum OverSampleType {
+    "none",
+    "2x",
+    "4x"
+};
+</pre>
+<table class="simple">
+  <tr>
+    <th colspan="2">Enumeration description:</th>
+  </tr>
+  <tr>
+    <td><dfn for="OverSampleType">none</dfn></td>
+    <td>Don&apos;t oversample</td>
+</tr>
+    <tr>
+    <td><dfn for="OverSampleType">2x</dfn></td>
+    <td>Oversample two times</td>
+</tr>
+    <tr>
+    <td><dfn for="OverSampleType">4x</dfn></td>
+    <td>Oversample four times</td>
+</tr>
+</table>

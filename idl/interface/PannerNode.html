@@ -1,0 +1,163 @@
+<dl title="interface PannerNode : AudioNode" class="idl">
+          <!--<dt>// Default for stereo is HRTF</dt>-->
+          <dt>
+            attribute PanningModelType panningModel
+          </dt>
+          <dd>
+            Specifies the panning model used by this
+            <a><code>PannerNode</code></a>. Defaults to
+            <a><code>&quot;equalpower&quot;</code></a>.
+          </dd><!--<dt> // Uses a 3D cartesian coordinate system </dt>-->
+          <dt>
+            readonly attribute AudioParam positionX
+          </dt>
+          <dd>
+            Sets the x coordinate position of the audio source in a 3D
+            Cartesian system. The default value is 0. This parameter is a-rate.
+          </dd>
+          <dt>
+            readonly attribute AudioParam positionY
+          </dt>
+          <dd>
+            Sets the y coordinate position of the audio source in a 3D
+            Cartesian system. The default value is 0. This parameter is a-rate.
+          </dd>
+          <dt>
+            readonly attribute AudioParam positionZ
+          </dt>
+          <dd>
+            Sets the z coordinate position of the audio source in a 3D
+            Cartesian system. The default value is 0. This parameter is a-rate.
+          </dd>
+          <dt>
+            readonly attribute AudioParam orientationX
+          </dt>
+          <dd>
+            Describes the x component of the vector of the direction the audio
+            source is pointing in 3D Cartesian coordinate space. Depending on
+            how directional the sound is (controlled by the <b>cone</b>
+            attributes), a sound pointing away from the listener can be very
+            quiet or completely silent. The default value is 1. This parameter
+            is a-rate.
+          </dd>
+          <dt>
+            readonly attribute AudioParam orientationY
+          </dt>
+          <dd>
+            Describes the y component of the vector of the direction the audio
+            source is pointing in 3D cartesian coordinate space. The default
+            value is 0. This parameter is a-rate.
+          </dd>
+          <dt>
+            readonly attribute AudioParam orientationZ
+          </dt>
+          <dd>
+            Describes the Z component of the vector of the direction the audio
+            source is pointing in 3D cartesian coordinate space. The default
+            value is 0. This parameter is a-rate.
+          </dd><!--<dt> // Distance model and attributes </dt>-->
+          <dt>
+            attribute DistanceModelType distanceModel
+          </dt>
+          <dd>
+            Specifies the distance model used by this
+            <a><code>PannerNode</code></a>. Defaults to
+            <a><code>&quot;inverse&quot;</code></a>.
+          </dd>
+          <dt>
+            attribute double refDistance
+          </dt>
+          <dd>
+            A reference distance for reducing volume as source move further
+            from the listener. The default value is 1.
+          </dd>
+          <dt>
+            attribute double maxDistance
+          </dt>
+          <dd>
+            The maximum distance between source and listener, after which the
+            volume will not be reduced any further. The default value is 10000.
+          </dd>
+          <dt>
+            attribute double rolloffFactor
+          </dt>
+          <dd>
+            Describes how quickly the volume is reduced as source moves away
+            from listener. The default value is 1.
+          </dd><!--<dt> // Directional sound cone </dt>-->
+          <dt>
+            attribute double coneInnerAngle
+          </dt>
+          <dd>
+            A parameter for directional audio sources, this is an angle, in
+            degrees, inside of which there will be no volume reduction. The
+            default value is 360. The behavior is undefined if the angle is
+            outside the interval [0, 360].
+          </dd>
+          <dt>
+            attribute double coneOuterAngle
+          </dt>
+          <dd>
+            A parameter for directional audio sources, this is an angle, in
+            degrees, outside of which the volume will be reduced to a constant
+            value of <a><code>coneOuterGain</code></a>. The default value is
+            360. The behavior is undefined if the angle is outside the interval
+            [0, 360].
+          </dd>
+          <dt>
+            attribute double coneOuterGain
+          </dt>
+          <dd>
+            A parameter for directional audio sources, this is the gain outside
+            of the <a><code>coneOuterAngle</code></a>. The default value is 0.
+            It is a linear value (not dB) in the range [0, 1]. An
+            InvalidStateError MUST be thrown if the parameter is outside this
+            range.
+          </dd>
+          <dt>
+            void setPosition(float x, float y, float z)
+          </dt>
+          <dd>
+            <p>
+              This method is DEPRECATED. It is equivalent to setting
+              <code>positionX</code>, <code>positionY</code>, and
+              <code>positionZ</code> AudioParams directly.
+            </p>
+            <p>
+              Sets the position of the audio source relative to the
+              <a><code>listener</code></a> attribute. A 3D cartesian coordinate
+              system is used.
+            </p>
+            <p>
+              The <code>x, y, z</code> parameters represent the coordinates in
+              3D space.
+            </p>
+            <p>
+              The default value is (0,0,0)
+            </p>
+          </dd>
+          <dt>
+            void setOrientation(float x, float y, float z)
+          </dt>
+          <dd>
+            <p>
+              This method is DEPRECATED. It is equivalent to setting
+              <code>orientationX</code>, <code>orientationY</code>, and
+              <code>orientationZ</code> AudioParams directly.
+            </p>
+            <p>
+              Describes which direction the audio source is pointing in the 3D
+              cartesian coordinate space. Depending on how directional the
+              sound is (controlled by the <b>cone</b> attributes), a sound
+              pointing away from the listener can be very quiet or completely
+              silent.
+            </p>
+            <p>
+              The <code>x, y, z</code> parameters represent a direction vector
+              in 3D space.
+            </p>
+            <p>
+              The default value is (1,0,0)
+            </p>
+          </dd>
+        </dl>

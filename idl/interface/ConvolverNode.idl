@@ -1,0 +1,110 @@
+<dl title="interface ConvolverNode : AudioNode" class="idl">
+          <dt>
+            attribute AudioBuffer? buffer
+          </dt>
+          <dd>
+            A mono, stereo, or 4-channel <a><code>AudioBuffer</code></a>
+            containing the (possibly multi-channel) impulse response used by
+            the <a><code>ConvolverNode</code></a>. <span class="synchronous">The <code>AudioBuffer</code> must have 1, 2, or 4
+            channels or a NotSupportedError exception MUST be thrown</span>.
+            <span class="synchronous">This <a><code>AudioBuffer</code></a> must
+            be of the same sample-rate as the <a><code>AudioContext</code></a>
+            or a NotSupportedError exception MUST be thrown</span>. At the time
+            when this attribute is set, the <em>buffer</em> and the state of
+            the <em>normalize</em> attribute will be used to configure the
+            <a><code>ConvolverNode</code></a> with this impulse response having
+            the given normalization. The initial value of this attribute is
+            null.
+          </dd>
+          <dt>
+            attribute boolean normalize
+          </dt>
+          <dd>
+            <p>
+              Controls whether the impulse response from the buffer will be
+              scaled by an equal-power normalization when the
+              <code>buffer</code> atttribute is set. Its default value is
+              <code>true</code> in order to achieve a more uniform output level
+              from the convolver when loaded with diverse impulse responses. If
+              <code>normalize</code> is set to <code>false</code>, then the
+              convolution will be rendered with no pre-processing/scaling of
+              the impulse response. Changes to this value do not take effect
+              until the next time the <em>buffer</em> attribute is set.
+            </p>
+            <p>
+              If the <em>normalize</em> attribute is false when the
+              <em>buffer</em> attribute is set then the
+              <a><code>ConvolverNode</code></a> will perform a linear
+              convolution given the exact impulse response contained within the
+              <em>buffer</em>.
+            </p>
+            <p>
+              Otherwise, if the <em>normalize</em> attribute is true when the
+              <em>buffer</em> attribute is set then the
+              <a><code>ConvolverNode</code></a> will first perform a scaled
+              RMS-power analysis of the audio data contained within
+              <em>buffer</em> to calculate a <em>normalizationScale</em> given
+              this algorithm:
+            </p>
+            <pre>
+
+function calculateNormalizationScale(buffer)
+{
+    var GainCalibration = 0.00125;
+    var GainCalibrationSampleRate = 44100;
+    var MinPower = 0.000125;
+
+    // Normalize by RMS power.
+    var numberOfChannels = buffer.numberOfChannels;
+    var length = buffer.length;
+
+    var power = 0;
+
+    for (var i = 0; i &lt; numberOfChannels; i++) {
+        var channelPower = 0;
+        var channelData = buffer.getChannelData(i);
+
+        for (var j = 0; j &lt; length; j++) {
+            var sample = channelData[j];
+            channelPower += sample * sample;
+        }
+
+        power += channelPower;
+    }
+
+    power = Math.sqrt(power / (numberOfChannels * length));
+
+    // Protect against accidental overload.
+    if (!isFinite(power) || isNaN(power) || power &lt; MinPower)
+        power = MinPower;
+
+    var scale = 1 / power;
+
+    // Calibrate to make perceived volume same as unprocessed.
+    scale *= GainCalibration;
+
+    // Scale depends on sample-rate.
+    if (buffer.sampleRate)
+        scale *= GainCalibrationSampleRate / buffer.sampleRate;
+
+    // True-stereo compensation.
+    if (numberOfChannels == 4)
+        scale *= 0.5;
+
+    return scale;
+}
+      
+</pre>
+            <p>
+              During processing, the ConvolverNode will then take this
+              calculated <em>normalizationScale</em> value and multiply it by
+              the result of the linear convolution resulting from processing
+              the input with the impulse response (represented by the
+              <em>buffer</em>) to produce the final output. Or any
+              mathematically equivalent operation may be used, such as
+              pre-multiplying the input by <em>normalizationScale</em>, or
+              pre-multiplying a version of the impulse-response by
+              <em>normalizationScale</em>.
+            </p>
+          </dd>
+        </dl>

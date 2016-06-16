@@ -1,0 +1,36 @@
+<dl title="interface IIRFilterNode : AudioNode" class="idl">
+          <dt>
+            void getFrequencyResponse()
+          </dt>
+          <dd>
+            <p>
+              Given the current filter parameter settings, calculates the
+              frequency response for the specified frequencies.
+            </p>
+            <dl class="parameters">
+              <dt>
+                Float32Array frequencyHz
+              </dt>
+              <dd>
+                This parameter specifies an array of frequencies at which the
+                response values will be calculated.
+              </dd>
+              <dt>
+                Float32Array magResponse
+              </dt>
+              <dd>
+                This parameter specifies an output array receiving the linear
+                magnitude response values. If this array is shorter than
+                <code>frequencyHz</code> a NotSupportedError MUST be signaled.
+              </dd>
+              <dt>
+                Float32Array phaseResponse
+              </dt>
+              <dd>
+                This parameter specifies an output array receiving the phase
+                response values in radians. If this array is shorter than
+                <code>frequencyHz</code> a NotSupportedError MUST be signaled.
+              </dd>
+            </dl>
+          </dd>
+        </dl>

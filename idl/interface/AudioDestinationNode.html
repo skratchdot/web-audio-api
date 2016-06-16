@@ -1,0 +1,38 @@
+<dl title="interface AudioDestinationNode : AudioNode" class="idl">
+          <dt>
+            readonly attribute unsigned long maxChannelCount
+          </dt>
+          <dd>
+            <p>
+              The maximum number of channels that the <a href="#widl-AudioNode-channelCount"><code>channelCount</code></a>
+              attribute can be set to. An
+              <a><code>AudioDestinationNode</code></a> representing the audio
+              hardware end-point (the normal case) can potentially output more
+              than 2 channels of audio if the audio hardware is multi-channel.
+              <code>maxChannelCount</code> is the maximum number of channels
+              that this hardware is capable of supporting. If this value is 0,
+              then this indicates that <a href="#widl-AudioNode-channelCount">channelCount</a> may not be
+              changed. This will be the case for an
+              <a><code>AudioDestinationNode</code></a> in an
+              <a><code>OfflineAudioContext</code></a> and also for basic
+              implementations with hardware support for stereo output only.
+            </p>
+            <p>
+              <a href="#widl-AudioNode-channelCount">channelCount</a> defaults
+              to 2 for a destination in a normal
+              <a><code>AudioContext</code></a>, and may be set to any non-zero
+              value less than or equal to <code>maxChannelCount</code>.
+              <span class="synchronous">An <a><code>IndexSizeError</code></a>
+              exception MUST be thrown if this value is not within the valid
+              range.</span> Giving a concrete example, if the audio hardware
+              supports 8-channel output, then we may set <a href="#widl-AudioNode-channelCount">channelCount</a> to 8, and render
+              8-channels of output.
+            </p>
+            <p>
+              For an<a><code>AudioDestinationNode</code></a> in an
+              <a><code>OfflineAudioContext</code></a>, the <a href="#widl-AudioNode-channelCount"><code>channelCount</code></a> is
+              determined when the offline context is created and this value may
+              not be changed.
+            </p>
+          </dd>
+        </dl>

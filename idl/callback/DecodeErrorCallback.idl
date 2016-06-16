@@ -1,0 +1,8 @@
+<dl title="callback DecodeErrorCallback = void" class="idl">
+          <dt>
+            DOMException error
+          </dt>
+          <dd>
+            The error that occurred while decoding.
+          </dd>
+        </dl>

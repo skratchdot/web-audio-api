@@ -1,0 +1,80 @@
+<dl title="interface WaveShaperNode : AudioNode" class="idl" data-merge="OverSampleType">
+          <dt>
+            attribute Float32Array? curve
+          </dt>
+          <dd>
+            <p>
+              The shaping curve used for the waveshaping effect. The input
+              signal is nominally within the range [-1; 1]. Each input sample
+              within this range will index into the shaping curve, with a
+              signal level of zero corresponding to the center value of the
+              curve array if there are an odd number of entries, or
+              interpolated between the two centermost values if there are an
+              even number of entries in the array. Any sample value less than
+              -1 will correspond to the first value in the curve array. Any
+              sample value greater than +1 will correspond to the last value in
+              the curve array.
+            </p>
+            <p>
+              The implementation must perform linear interpolation between
+              adjacent points in the curve. Initially the curve attribute is
+              null, which means that the WaveShaperNode will pass its input to
+              its output without modification.
+            </p>
+            <p>
+              Values of the curve are spread with equal spacing in the [-1; 1]
+              range. This means that a <a><code>curve</code></a> with a even
+              number of value will not have a value for a signal at zero, and a
+              <a><code>curve</code></a> with an odd number of value will have a
+              value for a signal at zero.
+            </p>
+            <p>
+              A <code>InvalidStateError</code> MUST be thrown if this attribute
+              is set with a <code>Float32Array</code> that has a
+              <code>length</code> less than 2.
+            </p>
+            <p>
+              When this attribute is set, an internal copy of the curve is
+              created by the <a><code>WaveShaperNode</code></a>. Subsequent
+              modifications of the contents of the array used to set the
+              attribute therefore have no effect: the attribute must be set
+              again in order to change the curve.
+            </p>
+          </dd>
+          <dt>
+            attribute OverSampleType oversample
+          </dt>
+          <dd>
+            <p>
+              Specifies what type of oversampling (if any) should be used when
+              applying the shaping curve. The default value is &quot;none&quot;, meaning
+              the curve will be applied directly to the input samples. A value
+              of &quot;2x&quot; or &quot;4x&quot; can improve the quality of the processing by
+              avoiding some aliasing, with the &quot;4x&quot; value yielding the highest
+              quality. For some applications, it&apos;s better to use no
+              oversampling in order to get a very precise shaping curve.
+            </p>
+            <p>
+              A value of &quot;2x&quot; or &quot;4x&quot; means that the following steps must be
+              performed:
+            </p>
+            <ol>
+              <li>Up-sample the input samples to 2x or 4x the sample-rate of
+              the <a><code>AudioContext</code></a>. Thus for each processing
+              block of 128 samples, generate 256 (for 2x) or 512 (for 4x)
+              samples.
+              </li>
+              <li>Apply the shaping curve.
+              </li>
+              <li>Down-sample the result back to the sample-rate of the
+              <a><code>AudioContext</code></a>. Thus taking the 256 (or 512)
+              processed samples, generating 128 as the final result.
+              </li>
+            </ol>
+            <p>
+              The exact up-sampling and down-sampling filters are not
+              specified, and can be tuned for sound quality (low aliasing,
+              etc.), low latency, and performance.
+            </p>
+          </dd>
+        </dl>

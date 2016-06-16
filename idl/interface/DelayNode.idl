@@ -1,0 +1,28 @@
+<dl title="interface DelayNode : AudioNode" class="idl">
+          <dt>
+            readonly attribute AudioParam delayTime
+          </dt>
+          <dd>
+            <p>
+              An <a><code>AudioParam</code></a> object representing the amount
+              of delay (in seconds) to apply. Its default <code>value</code> is
+              0 (no delay). The minimum value is 0 and the maximum value is
+              determined by the <code>maxDelayTime</code> argument to the
+              <code>AudioContext</code> method <code>createDelay</code>.
+            </p>
+            <p>
+              If <a><code>DelayNode</code></a> is part of a <a>cycle</a>, then
+              the value of the <a><code>delayTime</code></a> attribute is
+              clamped to a minimum of 128 frames (one block).
+            </p>
+            <p>
+              Its <a>nominal range</a> is [0, maxDelayTime], where
+              <code>maxDelayTime</code> is the value passed to the
+              <code>createDelay</code> method on the
+              <a><code>AudioContext</code></a>.
+            </p>
+            <p>
+              This parameter is <a>a-rate</a>.
+            </p>
+          </dd>
+        </dl>

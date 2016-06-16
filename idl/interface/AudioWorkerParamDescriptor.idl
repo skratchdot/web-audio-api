@@ -1,0 +1,14 @@
+<dl title="interface AudioWorkerParamDescriptor" class="idl">
+            <dt>
+              readonly attribute DOMString name
+            </dt>
+            <dd>
+              The name of the AudioParam.
+            </dd>
+            <dt>
+              readonly attribute float defaultValue
+            </dt>
+            <dd>
+              The default value of the AudioParam.
+            </dd>
+          </dl>

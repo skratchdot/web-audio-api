@@ -1,0 +1,107 @@
+<dl title="interface BiquadFilterNode : AudioNode" class="idl">
+          <dt>
+            attribute BiquadFilterType type
+          </dt>
+          <dd>
+            The type of this <a><code>BiquadFilterNode</code></a>. The exact
+            meaning of the other parameters depend on the value of the
+            <a><code>type</code></a> attribute.
+          </dd>
+          <dt>
+            readonly attribute AudioParam frequency
+          </dt>
+          <dd>
+            The frequency at which the <a><code>BiquadFilterNode</code></a>
+            will operate, in Hz. Its default value is 350Hz. It forms a
+            <a>compound parameter</a> with <code>detune</code>. Its nominal
+            range is [0, <a>Nyquist frequency</a>].
+          </dd>
+          <dt>
+            readonly attribute AudioParam detune
+          </dt>
+          <dd>
+            A detune value, in cents, for the frequency. Its default value is
+            0. It forms a <a>compound parameter</a> with
+            <code>frequency</code>. Its nominal range is \((-\infty, \infty)\).
+          </dd>
+          <dt>
+            readonly attribute AudioParam Q
+          </dt>
+          <dd>
+            The <a href="https://en.wikipedia.org/wiki/Q_factor">Q</a> factor
+            has a default value of 1. Its <a>nominal range</a> is \((-\infty,
+            \infty)\). This is not used for <a href="#idl-def-BiquadFilterType.lowshelf">lowshelf</a> or <a href="#idl-def-BiquadFilterType.highshelf">highshelf</a> filters.
+          </dd>
+          <dt>
+            readonly attribute AudioParam gain
+          </dt>
+          <dd>
+            The gain has a default value of 0. Its <a>nominal range</a> is
+            \((-\infty, \infty)\). Its value is in dB units. The gain is only
+            used for <a href="#idl-def-BiquadFilterType.lowshelf">lowshelf</a>,
+            <a href="#idl-def-BiquadFilterType.highshelf">highshelf</a>, and
+            <a href="#idl-def-BiquadFilterType.peaking">peaking</a> filters.
+          </dd>
+          <dt>
+            void getFrequencyResponse()
+          </dt>
+          <dd>
+            <p>
+              <span class="sychronous">Given the current filter parameter
+              settings, synchronously calculates the frequency response for the
+              specified frequencies.</span> The three parameters MUST be
+              <code>Float32Array</code>s of the same length, or an
+              <code>InvalidAccessError</code> MUST be thrown.
+            </p>
+            <p>
+              The frequency response returned MUST be computed with the
+              <a><code>AudioParam</code></a> sampled for the current processing
+              block.
+            </p>
+            <dl class="parameters">
+              <dt>
+                Float32Array frequencyHz
+              </dt>
+              <dd>
+                <p>
+                  This parameter specifies an array of frequencies at which the
+                  response values will be calculated.
+                </p>
+              </dd>
+              <dt>
+                Float32Array magResponse
+              </dt>
+              <dd>
+                <p>
+                  This parameter specifies an output array receiving the linear
+                  magnitude response values.
+                </p>
+                <p>
+                  If a value in the <code>frequencyHz</code> parameter is not
+                  within [0; sampleRate/2], where <code>sampleRate</code> is
+                  the value of the <a href="#widl-BaseAudioContext-sampleRate"><code>sampleRate</code></a>
+                  property of the <a>AudioContext</a>, the corresponding value
+                  at the same index of the <code>magResponse</code> array MUST
+                  be <code>NaN</code>.
+                </p>
+              </dd>
+              <dt>
+                Float32Array phaseResponse
+              </dt>
+              <dd>
+                <p>
+                  This parameter specifies an output array receiving the phase
+                  response values in radians.
+                </p>
+                <p>
+                  If a value in the <code>frequencyHz</code> parameter is not
+                  within [0; sampleRate/2], where <code>sampleRate</code> is
+                  the value of the <a href="#widl-BaseAudioContext-sampleRate"><code>sampleRate</code></a>
+                  property of the <a>AudioContext</a>, the corresponding value
+                  at the same index of the <code>phaseResponse</code> array
+                  MUST be <code>NaN</code>.
+                </p>
+              </dd>
+            </dl>
+          </dd>
+        </dl>

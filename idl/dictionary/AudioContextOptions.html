@@ -1,0 +1,19 @@
+<dl title="dictionary AudioContextOptions" class="idl">
+          <dt>
+            (AudioContextLatencyCategory or double) latencyHint = &quot;interactive&quot;
+          </dt>
+          <dd>
+            <p>
+              Identify the type of playback, which affects tradeoffs between
+              audio output latency and power consumption.
+            </p>
+            <p>
+              The preferred value of the <code>latencyHint</code> is a value
+              from <a>AudioContextLatencyCategory</a>. However, a double can
+              also be specified for the number of seconds of latency for finer
+              control to balance latency and power consumption. It is at the
+              browser&apos;s discretion to interpret the number appropriately. The
+              actual latency used is given by AudioContext&apos;s <a href="#widl-BaseAudioContext-baseLatency">baseLatency</a> attribute.
+            </p>
+          </dd>
+        </dl>

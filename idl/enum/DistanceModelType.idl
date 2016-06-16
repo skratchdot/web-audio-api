@@ -1,0 +1,63 @@
+<pre id="enum-DistanceModelType" class="idl">
+enum DistanceModelType {
+    "linear",
+    "inverse",
+    "exponential"
+};
+</pre>
+<table class="simple">
+  <tr>
+    <th colspan="2">Enumeration description:</th>
+  </tr>
+  <tr>
+    <td><dfn for="DistanceModelType">linear</dfn></td>
+    <td><p>
+              A linear distance model which calculates <em>distanceGain</em>
+              according to:
+            </p>
+            <pre class="nohighlight">
+            $$
+              1 - f\frac{\max(\min(d, d_{max}), d_{ref}) - d_{ref}}{d_{max} - d_{ref}}
+            $$
+            
+</pre>
+            <p>
+              That is, \(d\) is clamped to the interval \([d_{ref},\,
+              d_{max}]\).
+            </p></td>
+</tr>
+    <tr>
+    <td><dfn for="DistanceModelType">inverse</dfn></td>
+    <td><p>
+              An inverse distance model which calculates <em>distanceGain</em>
+              according to:
+            </p>
+            <pre class="nohighlight">
+              $$
+                \frac{d_{ref}}{d_{ref} + f (\max(d, d_{ref}) - d_{ref})}
+              $$
+            
+</pre>
+            <p>
+              That is, \(d\) is clamped to the interval \([d_{ref},\,
+              \infty)\).
+            </p></td>
+</tr>
+    <tr>
+    <td><dfn for="DistanceModelType">exponential</dfn></td>
+    <td><p>
+              An exponential distance model which calculates
+              <em>distanceGain</em> according to:
+            </p>
+            <pre class="nohighlight">
+              $$
+                \left(\frac{\max(d, d_{ref})}{d_{ref}}\right)^{-f}
+              $$
+            
+</pre>
+            <p>
+              That is, \(d\) is clamped to the interval \([d_{ref},\,
+              \infty)\).
+            </p></td>
+</tr>
+</table>

@@ -1,0 +1,67 @@
+<dl title="interface OscillatorNode : AudioNode" class="idl">
+          <dt>
+            attribute OscillatorType type
+          </dt>
+          <dd>
+            The shape of the periodic waveform. It may directly be set to any
+            of the type constant values except for &quot;custom&quot;. <span class="synchronous">Doing so MUST throw an InvalidStateError
+            exception.</span> The <a href="#widl-OscillatorNode-setPeriodicWave-void-PeriodicWave-periodicWave">
+            <code>setPeriodicWave()</code></a> method can be used to set a
+            custom waveform, which results in this attribute being set to
+            &quot;custom&quot;. The default value is &quot;sine&quot;. When this attribute is set,
+            the phase of the oscillator MUST be conserved.
+          </dd>
+          <dt>
+            readonly attribute AudioParam frequency
+          </dt>
+          <dd>
+            The frequency (in Hertz) of the periodic waveform. Its default
+            <code>value</code> is 440. This parameter is <a>a-rate</a>. It
+            forms a <a>compound parameter</a> with <code>detune</code>. Its
+            nominal range is [-<a>Nyquist frequency</a>, <a>Nyquist
+            frequency</a>].
+          </dd>
+          <dt>
+            readonly attribute AudioParam detune
+          </dt>
+          <dd>
+            A detuning value (in cents) which will offset the
+            <a><code>frequency</code></a> by the given amount. Its default
+            <code>value</code> is 0. This parameter is <a>a-rate</a>. It forms
+            a <a>compound parameter</a> with <code>frequency</code>. Its
+            nominal range is \((-\infty, \infty)\).
+          </dd>
+          <dt>
+            void start(optional double when = 0)
+          </dt>
+          <dd>
+            Defined the same as the <code>when</code> parameter of the
+            <a><code>AudioBufferSourceNode</code></a>
+          </dd>
+          <dt>
+            void stop(optional double when = 0)
+          </dt>
+          <dd>
+            Defined as in <a><code>AudioBufferSourceNode</code></a>.
+          </dd>
+          <dt>
+            void setPeriodicWave(PeriodicWave periodicWave)
+          </dt>
+          <dd>
+            Sets an arbitrary custom periodic waveform given a
+            <a><code>PeriodicWave</code></a>.
+          </dd>
+          <dt>
+            attribute EventHandler onended
+          </dt>
+          <dd>
+            A property used to set the <code>EventHandler</code> (described in
+            <cite><a href="https://html.spec.whatwg.org/multipage/webappapis.html#eventhandler">
+            HTML</a></cite>[[HTML]]) for the ended event that is dispatched to
+            <a>OscillatorNode</a> node types. When the
+            <a><code>OscillatorNode</code></a> has finished playing (i.e. its
+            stop time has been reached), an event of type <code>Event</code>
+            (described in <cite><a href="https://html.spec.whatwg.org/multipage/infrastructure.html#event">HTML</a></cite>[[HTML]])
+            will be dispatched to the event handler.
+          </dd>
+        </dl>

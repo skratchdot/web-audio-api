@@ -1,0 +1,27 @@
+<pre id="enum-ChannelCountMode" class="idl">
+enum ChannelCountMode {
+    "max",
+    "clamped-max",
+    "explicit"
+};
+</pre>
+<table class="simple">
+  <tr>
+    <th colspan="2">Enumeration description:</th>
+  </tr>
+  <tr>
+    <td><dfn for="ChannelCountMode">max</dfn></td>
+    <td><a><code>computedNumberOfChannels</code></a> is computed as the
+            maximum of the number of channels of all connections. In this mode
+            channelCount is ignored</td>
+</tr>
+    <tr>
+    <td><dfn for="ChannelCountMode">clamped-max</dfn></td>
+    <td>Same as &#x201C;max&#x201D; up to a limit of the channelCount</td>
+</tr>
+    <tr>
+    <td><dfn for="ChannelCountMode">explicit</dfn></td>
+    <td><a><code>computedNumberOfChannels</code></a> is the exact value as
+            specified in channelCount</td>
+</tr>
+</table>

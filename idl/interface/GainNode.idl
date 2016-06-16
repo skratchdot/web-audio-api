@@ -1,0 +1,11 @@
+<dl title="interface GainNode : AudioNode" class="idl">
+          <dt>
+            readonly attribute AudioParam gain
+          </dt>
+          <dd>
+            Represents the amount of gain to apply. Its default
+            <code>value</code> is 1 (no gain change). This parameter is
+            <a>a-rate</a>. Its <a>nominal range</a> is (-\(\infty\),
+            +\(\infty\)).
+          </dd>
+        </dl>

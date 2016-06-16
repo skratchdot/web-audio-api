@@ -1,0 +1,10 @@
+<dl title="interface OfflineAudioCompletionEvent : Event" class="idl">
+            <dt>
+              readonly attribute AudioBuffer renderedBuffer
+            </dt>
+            <dd>
+              <p>
+                An <code>AudioBuffer</code> containing the rendered audio data.
+              </p>
+            </dd>
+          </dl>

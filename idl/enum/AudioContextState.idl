@@ -1,0 +1,31 @@
+<pre id="enum-AudioContextState" class="idl">
+enum AudioContextState {
+    "suspended",
+    "running",
+    "closed"
+};
+</pre>
+<table class="simple">
+  <tr>
+    <th colspan="2">Enumeration description:</th>
+  </tr>
+  <tr>
+    <td><dfn for="AudioContextState">suspended</dfn></td>
+    <td>This context is currently suspended (context time is not
+            proceeding, audio hardware may be powered down/released).</td>
+</tr>
+    <tr>
+    <td><dfn for="AudioContextState">running</dfn></td>
+    <td>Audio is being processed.</td>
+</tr>
+    <tr>
+    <td><dfn for="AudioContextState">closed</dfn></td>
+    <td>This context has been released, and can no longer be used to
+            process audio. All system audio resources have been released.
+            <span class="synchronous">Attempts to create new Nodes on the
+            AudioContext will throw InvalidStateError</span>. (AudioBuffers may
+            still be created, through <a href="#widl-BaseAudioContext-createBuffer-AudioBuffer-unsigned-long-numberOfChannels-unsigned-long-length-float-sampleRate">
+            createBuffer</a> or <a href="#widl-BaseAudioContext-decodeAudioData-Promise-AudioBuffer--ArrayBuffer-audioData-DecodeSuccessCallback-successCallback-DecodeErrorCallback-errorCallback">
+            decodeAudioData</a>.)</td>
+</tr>
+</table>

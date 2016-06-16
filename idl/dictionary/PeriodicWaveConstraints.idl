@@ -1,0 +1,10 @@
+<dl title="dictionary PeriodicWaveConstraints" class="idl">
+            <dt>
+              boolean disableNormalization = false
+            </dt>
+            <dd>
+              Controls whether the periodic wave is normalized or not. If
+              <code>true</code>, the waveform is not normalized; otherwise, the
+              waveform is normalized.
+            </dd>
+          </dl>

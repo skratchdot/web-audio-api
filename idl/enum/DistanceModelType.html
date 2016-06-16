@@ -1,0 +1,59 @@
+<dl title="enum DistanceModelType" class="idl">
+          <dt>
+            linear
+          </dt>
+          <dd>
+            <p>
+              A linear distance model which calculates <em>distanceGain</em>
+              according to:
+            </p>
+            <pre class="nohighlight">
+            $$
+              1 - f\frac{\max(\min(d, d_{max}), d_{ref}) - d_{ref}}{d_{max} - d_{ref}}
+            $$
+            
+</pre>
+            <p>
+              That is, \(d\) is clamped to the interval \([d_{ref},\,
+              d_{max}]\).
+            </p>
+          </dd>
+          <dt>
+            inverse
+          </dt>
+          <dd>
+            <p>
+              An inverse distance model which calculates <em>distanceGain</em>
+              according to:
+            </p>
+            <pre class="nohighlight">
+              $$
+                \frac{d_{ref}}{d_{ref} + f (\max(d, d_{ref}) - d_{ref})}
+              $$
+            
+</pre>
+            <p>
+              That is, \(d\) is clamped to the interval \([d_{ref},\,
+              \infty)\).
+            </p>
+          </dd>
+          <dt>
+            exponential
+          </dt>
+          <dd>
+            <p>
+              An exponential distance model which calculates
+              <em>distanceGain</em> according to:
+            </p>
+            <pre class="nohighlight">
+              $$
+                \left(\frac{\max(d, d_{ref})}{d_{ref}}\right)^{-f}
+              $$
+            
+</pre>
+            <p>
+              That is, \(d\) is clamped to the interval \([d_{ref},\,
+              \infty)\).
+            </p>
+          </dd>
+        </dl>

@@ -1,0 +1,21 @@
+<dl title="interface AudioWorkerNode : AudioNode" class="idl">
+            <dt>
+              void postMessage(any message, optional
+              sequence&lt;Transferable&gt; transfer)
+            </dt>
+            <dd>
+              postMessage may be called to send a message to the
+              AudioWorkerNodeProcessor, via the algorithm defined by <a href="https://w3c.github.io/workers/#dom-worker-postmessage">the
+              Worker specification</a>. Note that this is different from
+              calling postMessage() on the AudioWorker itself, as that would
+              affect the AudioWorkerGlobalScope.
+            </dd>
+            <dt>
+              attribute EventHandler onmessage
+            </dt>
+            <dd>
+              The onmessage handler is called whenever the
+              AudioWorkerNodeProcessor posts a node message back to the main
+              thread.
+            </dd>
+          </dl>

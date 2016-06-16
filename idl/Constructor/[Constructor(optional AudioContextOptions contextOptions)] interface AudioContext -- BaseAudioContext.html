@@ -1,0 +1,165 @@
+<dl title="[Constructor(optional AudioContextOptions contextOptions)] interface AudioContext : BaseAudioContext" class="idl">
+          <dt>
+            Constructor
+          </dt>
+          <dd>
+            <p>
+              <span class="synchronous">When creating an <a>AudioContext</a>,
+              execute these steps:</span>
+            </p>
+            <ol>
+              <li>Set a <code>control thread state</code> to
+              <code>suspended</code> on the <a>AudioContext</a>.
+              </li>
+              <li>Send a <a>control message</a> to start processing.
+              </li>
+            </ol>
+            <p>
+              Sending a <a>control message</a> to start processing means
+              executing the following steps:
+            </p>
+            <ol>
+              <li>Attempt to <a href="#acquiring">Acquire system resources</a>.
+              </li>
+              <li>In case of failure, abort these steps.
+              </li>
+              <li>Queue a task on the <a>control thread</a> event loop, to
+              execute these steps:
+                <ol>
+                  <li>Set the <a href="#widl-audiocontext-state">state</a>
+                  attribute of the <a>AudioContext</a> to <code>running</code>.
+                  </li>
+                  <li>Queue a task to fire a simple event named
+                  <code>statechange</code> at the <a>AudioContext</a>.
+                  </li>
+                </ol>
+              </li>
+            </ol>
+            <p class="note">
+              It is unfortunately not possible to programatically notify
+              authors that the creation of the <a>AudioContext</a> failed.
+              User-Agents are encouraged to log an informative message if they
+              have access to a logging mechanism, such as a developer tools
+              console.
+            </p>
+          </dd>
+          <dt>
+            readonly attribute double outputLatency
+          </dt>
+          <dd>
+            <p>
+              The estimation in seconds of audio output latency, i.e., the
+              interval between the time the UA requests the host system to play
+              a buffer and the time at which the first sample in the buffer is
+              actually processed by the audio output device. For devices such
+              as speakers or headphones that produce an acoustic signal, this
+              latter time refers to the time when a sample&apos;s sound is produced.
+            </p>
+            <p>
+              The <a><code>outputLatency</code></a> attribute value depends on
+              the platform and the connected hardware audio output device. The
+              <a><code>outputLatency</code></a> attribute value does not change
+              for the context&apos;s lifetime as long as the connected audio output
+              device remains the same. If the audio output device is changed
+              the <a><code>outputLatency</code></a> attribute value will be
+              updated accordingly.
+            </p>
+          </dd>
+          <dt>
+            AudioTimestamp getOutputTimestamp()
+          </dt>
+          <dd>
+            <p>
+              Returns a new <a><code>AudioTimestamp</code></a> instance
+              containing two correlated context&apos;s audio stream position values:
+              the <a href="#widl-AudioTimestamp-contextTime"><code>contextTime</code></a>
+              member contains the time of the sample frame which is currently
+              being rendered by the audio output device (i.e., output audio
+              stream position), in the same units and origin as context&apos;s
+              <a href="#widl-BaseAudioContext-currentTime"><code>currentTime</code></a>;
+              the <a href="#widl-AudioTimestamp-performanceTime"><code>performanceTime</code></a>
+              member contains the time estimating the moment when the sample
+              frame corresponding to the stored <code>contextTime</code> value
+              was rendered by the audio output device, in the same units and
+              origin as <code>performance.now()</code> (described in
+              [[!hr-time-2]]).
+            </p>
+            <p>
+              If the context&apos;s rendering graph has not yet processed a block of
+              audio, then <a><code>getOutputTimestamp</code></a> call returns
+              an <code>AudioTimestamp</code> instance with both members
+              containing zero.
+            </p>
+            <p>
+              After the context&apos;s rendering graph has started processing of
+              blocks of audio, its <a href="#widl-BaseAudioContext-currentTime"><code>currentTime</code></a>
+              attribute value always exceeds the <a href="#widl-AudioTimestamp-contextTime"><code>contextTime</code></a>
+              value obtained from <a href="#widl-AudioContext-getOutputTimestamp-AudioTimestamp"><code>getOutputTimestamp</code></a>
+              method call.
+            </p>
+            <p>
+              The value returned from <a><code>getOutputTimestamp</code></a>
+              method can be used to get performance time estimation for the
+              slightly later context&apos;s time value:
+            </p>
+            <pre class="example">
+            function outputPerformanceTime(contextTime) {
+                var timestamp = context.getOutputTimestamp();
+                var elapsedTime = contextTime - timestamp.contextTime;
+                return timestamp.performanceTime + elapsedTime * 1000;
+            }
+            </pre>
+            <p>
+              In the above example the accuracy of the estimation depends on
+              how close the argument value is to the current output audio
+              stream position: the closer the given <code>contextTime</code> is
+              to <code>timestamp.contextTime</code>, the better the accuracy of
+              the obtained estimation.
+            </p>
+            <p class="note">
+              The difference between the values of context&apos;s <a href="#widl-BaseAudioContext-currentTime"><code>currentTime</code></a>
+              and the <a href="#widl-AudioTimestamp-contextTime"><code>contextTime</code></a>
+              obtained from <a href="#widl-AudioContext-getOutputTimestamp-AudioTimestamp"><code>getOutputTimestamp</code></a>
+              method call cannot be considered as a reliable output latency
+              estimation because <a href="#widl-BaseAudioContext-currentTime"><code>currentTime</code></a>
+              may be incremented at non-uniform time intervals, so <a href="#widl-AudioContext-outputLatency"><code>outputLatency</code></a>
+              attribute should be used instead.
+            </p>
+          </dd>
+          <dt>
+            MediaElementAudioSourceNode createMediaElementSource()
+          </dt>
+          <dd>
+            Creates a <a href="#MediaElementAudioSourceNode">MediaElementAudioSourceNode</a>
+            given an HTMLMediaElement. As a consequence of calling this method,
+            audio playback from the HTMLMediaElement will be re-routed into the
+            processing graph of the <a><code>AudioContext</code></a>.
+            <dl class="parameters">
+              <dt>
+                HTMLMediaElement mediaElement
+              </dt>
+              <dd>
+                The media element that will be re-routed.
+              </dd>
+            </dl>
+          </dd>
+          <dt>
+            MediaStreamAudioSourceNode createMediaStreamSource()
+          </dt>
+          <dd>
+            <dl class="parameters">
+              <dt>
+                MediaStream mediaStream
+              </dt>
+              <dd>
+                The media stream that will act as source.
+              </dd>
+            </dl>
+          </dd>
+          <dt>
+            MediaStreamAudioDestinationNode createMediaStreamDestination()
+          </dt>
+          <dd>
+            Creates a <a><code>MediaStreamAudioDestinationNode</code></a>
+          </dd>
+        </dl>

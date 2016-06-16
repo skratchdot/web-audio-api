@@ -1,0 +1,9 @@
+<dl title="interface MediaStreamAudioDestinationNode : AudioNode" class="idl">
+          <dt>
+            readonly attribute MediaStream stream
+          </dt>
+          <dd>
+            A MediaStream containing a single AudioMediaStreamTrack with the
+            same number of channels as the node itself.
+          </dd>
+        </dl>

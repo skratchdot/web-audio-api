@@ -1,0 +1,27 @@
+<dl title="enum AudioContextState" class="idl">
+          <dt>
+            suspended
+          </dt>
+          <dd>
+            This context is currently suspended (context time is not
+            proceeding, audio hardware may be powered down/released).
+          </dd>
+          <dt>
+            running
+          </dt>
+          <dd>
+            Audio is being processed.
+          </dd>
+          <dt>
+            closed
+          </dt>
+          <dd>
+            This context has been released, and can no longer be used to
+            process audio. All system audio resources have been released.
+            <span class="synchronous">Attempts to create new Nodes on the
+            AudioContext will throw InvalidStateError</span>. (AudioBuffers may
+            still be created, through <a href="#widl-BaseAudioContext-createBuffer-AudioBuffer-unsigned-long-numberOfChannels-unsigned-long-length-float-sampleRate">
+            createBuffer</a> or <a href="#widl-BaseAudioContext-decodeAudioData-Promise-AudioBuffer--ArrayBuffer-audioData-DecodeSuccessCallback-successCallback-DecodeErrorCallback-errorCallback">
+            decodeAudioData</a>.)
+          </dd>
+        </dl>

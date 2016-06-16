@@ -1,0 +1,184 @@
+<dl title="interface AudioBufferSourceNode : AudioNode" class="idl">
+          <dt>
+            attribute AudioBuffer? buffer
+          </dt>
+          <dd>
+            Represents the audio asset to be played. To set the
+            <code>buffer</code> attribute, execute these steps:
+            <ol>
+              <li>Let <code>new buffer</code> be the <a>AudioBuffer</a> to be
+              assigned to <code>buffer</code>.
+              </li>
+              <li>If <code>new buffer</code> is not <code>null</code> and
+              <code>buffer set</code> is true, throw an
+              <code>InvalidStateError</code> and abort these steps.
+              </li>
+              <li>If <code>new buffer</code> is not <code>null</code>, set
+              <code>buffer set</code> to true.
+              </li>
+              <li>Assign <code>new buffer</code> to the <code>buffer</code>
+              attribute.
+              </li>
+            </ol>
+          </dd>
+          <dt>
+            readonly attribute AudioParam playbackRate
+          </dt>
+          <dd>
+            The speed at which to render the audio stream. Its default
+            <code>value</code> is 1. This parameter is <a>k-rate</a>. This is a
+            <a>compound parameter</a> with <code>detune</code>. Its nominal
+            range is \([-\infty, \infty]\).
+          </dd>
+          <dt>
+            readonly attribute AudioParam detune
+          </dt>
+          <dd>
+            An additional parameter, in cents, to modulate the speed at which
+            is rendered the audio stream. Its default value is 0. This
+            parameter is <a>k-rate</a>. This parameter is a <a>compound
+            parameter</a> with <code>playbackRate</code>. Its nominal range is
+            \((-\infty, \infty)\).
+          </dd>
+          <dt>
+            attribute boolean loop
+          </dt>
+          <dd>
+            Indicates if the audio data should play in a loop. The default
+            value is false. If <code>loop</code> is dynamically modified during
+            playback, the new value will take effect on the next processing
+            block of audio.
+          </dd>
+          <dt>
+            attribute double loopStart
+          </dt>
+          <dd>
+            An optional value in seconds where looping should begin if the
+            <code>loop</code> attribute is true. Its default <code>value</code>
+            is 0, and it may usefully be set to any value between 0 and the
+            duration of the buffer. If <code>loopStart</code> is less than 0,
+            looping will begin at 0. If <code>loopStart</code> is greater than
+            the duration of the buffer, looping will begin at the end of the
+            buffer. This attribute is converted to an exact sample frame offset
+            within the buffer by multiplying by the buffer&apos;s sample rate and
+            rounding to the nearest integer value. Thus its behavior is
+            independent of the value of the <a href="#widl-AudioBufferSourceNode-playbackRate"><code>playbackRate</code></a>
+            parameter.
+          </dd>
+          <dt>
+            attribute double loopEnd
+          </dt>
+          <dd>
+            An optional value in seconds where looping should end if the
+            <code>loop</code> attribute is true. Its value is exclusive of the
+            content of the loop: the sample frames comprising the loop run from
+            the values <code>loopStart</code> to
+            <code>loopEnd-(1.0/sampleRate)</code>. Its default
+            <code>value</code> is 0, and it may usefully be set to any value
+            between 0 and the duration of the buffer. If <code>loopEnd</code>
+            is less than 0, looping will end at 0. If <code>loopEnd</code> is
+            greater than the duration of the buffer, looping will end at the
+            end of the buffer. This attribute is converted to an exact sample
+            frame offset within the buffer by multiplying by the buffer&apos;s
+            sample rate and rounding to the nearest integer value. Thus its
+            behavior is independent of the value of the <a href="#widl-AudioBufferSourceNode-playbackRate"><code>playbackRate</code></a>
+            parameter.
+          </dd>
+          <dt>
+            void start()
+          </dt>
+          <dd>
+            Schedules a sound to playback at an exact time. <code>start</code>
+            may only be called one time and <span class="synchronous">must be
+            called before <code>stop</code> is called or an InvalidStateError
+            exception MUST be thrown.</span>
+            <dl class="parameters">
+              <dt>
+                optional double when = 0
+              </dt>
+              <dd>
+                The <a><code>when</code></a> parameter describes at what time
+                (in seconds) the sound should start playing. It is in the same
+                time coordinate system as the
+                <a><code>AudioContext</code></a>&apos;s <a href="#widl-BaseAudioContext-currentTime">currentTime</a> attribute.
+                If 0 is passed in for this value or if the value is less than
+                <b>currentTime</b>, then the sound will start playing
+                immediately. <span class="synchronous">A TypeError exception
+                MUST be thrown if <code>when</code> is negative.</span>
+              </dd>
+              <dt>
+                optional double offset = 0
+              </dt>
+              <dd>
+                The <dfn id="dfn-offset">offset</dfn> parameter describes the
+                offset time in the buffer (in seconds) where playback will
+                begin. If 0 is passed in for this value, then playback will
+                start from the beginning of the buffer. <span class="synchronous">A TypeError exception MUST be thrown if
+                <code>offset</code> is negative.</span> If <code>offset</code>
+                is greater than <code>loopEnd</code>, playback will begin at
+                <code>loopEnd</code> (and immediately loop to
+                <code>loopStart</code>). This parameter is converted to an
+                exact sample frame offset within the buffer by multiplying by
+                the buffer&apos;s sample rate and rounding to the nearest integer
+                value. Thus its behavior is independent of the value of the
+                <a href="#widl-AudioBufferSourceNode-playbackRate"><code>playbackRate</code></a>
+                parameter.
+              </dd>
+              <dt>
+                optional double duration
+              </dt>
+              <dd>
+                The <a><code>duration</code></a> parameter describes the
+                duration of the portion (in seconds) to be played. If this
+                parameter is not passed, the duration will be equal to the
+                total duration of the AudioBuffer minus the <code>offset</code>
+                parameter. Thus if neither <code>offset</code> nor
+                <code>duration</code> are specified then the implied duration
+                is the total duration of the AudioBuffer. <span class="synchronous">An TypeError exception MUST be thrown if
+                <code>duration</code> is negative.</span>
+              </dd>
+            </dl>
+          </dd>
+          <dt>
+            void stop()
+          </dt>
+          <dd>
+            Schedules a sound to stop playback at an exact time.
+            <dl class="parameters">
+              <dt>
+                optional double when = 0
+              </dt>
+              <dd>
+                The <a><code>when</code></a> parameter describes at what time
+                (in seconds) the sound should stop playing. It is in the same
+                time coordinate system as the
+                <a><code>AudioContext</code></a>&apos;s <a href="#widl-BaseAudioContext-currentTime">currentTime</a> attribute.
+                If 0 is passed in for this value or if the value is less than
+                <a><code>currentTime</code></a>, then the sound will stop
+                playing immediately. <span class="synchronous">A TypeError
+                exception MUST be thrown if <code>when</code> is
+                negative</span>. If <code>stop</code> is called again after
+                already have been called, the last invocation will be the only
+                one applied; stop times set by previous calls will not be
+                applied, unless the buffer has already stopped prior to any
+                subsequent calls. If the buffer has already stopped, further
+                calls to <code>stop</code> will have no effect. If a stop time
+                is reached prior to the scheduled start time, the sound will
+                not play.
+              </dd>
+            </dl>
+          </dd>
+          <dt>
+            attribute EventHandler onended
+          </dt>
+          <dd>
+            A property used to set the <code>EventHandler</code> (described in
+            <cite><a href="https://html.spec.whatwg.org/multipage/webappapis.html#eventhandler">
+            HTML</a></cite>[[!HTML]]) for the ended event that is dispatched to
+            <a><code>AudioBufferSourceNode</code></a> node types. When the
+            playback of the buffer for an
+            <a><code>AudioBufferSourceNode</code></a> is finished, an event of
+            type <code>Event</code> (described in <cite><a href="https://html.spec.whatwg.org/multipage/infrastructure.html#event">HTML</a></cite>
+            [[!HTML]]) will be dispatched to the event handler.
+          </dd>
+        </dl>

@@ -1,0 +1,78 @@
+<dl title="interface AudioProcessEvent : Event" class="idl">
+          <dt>
+            readonly attribute double playbackTime
+          </dt>
+          <dd>
+            The starting time of the block of audio being processed in response
+            to this event. By definition this will be equal to the value of
+            <a><code>BaseAudioContext</code></a>&apos;s <a href="#widl-BaseAudioContext-currentTime">currentTime</a> attribute that
+            was most recently observable in the control thread.
+          </dd>
+          <dt>
+            readonly attribute AudioWorkerNodeProcessor node
+          </dt>
+          <dd>
+            The node to which this processing event is being dispatched. Any
+            node-local data storage (e.g., the buffer for a delay node) should
+            be maintained on this object.
+          </dd>
+          <dt>
+            readonly attribute Float32Array[][] inputs
+          </dt>
+          <dd>
+            <p>
+              A readonly Array of Arrays of Float32Arrays. The top-level Array
+              is organized by input; each input may contain multiple channels;
+              each channel contains a Float32Array of sample data. The initial
+              size of the channel array will be determined by the number of
+              channels specified for that input in the createAudioWorkerNode()
+              method. However, an onprocess handler may alter this number of
+              channels in the input dynamically, either by adding a
+              Float32Array of blocksize length (128) or by reducing the Array
+              (by reducing the Array.length or by using Array.pop() or
+              Array.slice(). The event object, the Array and the Float32Arrays
+              will be reused by the processing system, in order to minimize
+              memory churn.
+            </p>
+            <p>
+              Any reordering performed on the Array for an input will not
+              reorganize the connections to the channels for subsequent events.
+            </p>
+          </dd>
+          <dt>
+            readonly attribute Float32Array[][] outputs
+          </dt>
+          <dd>
+            <p>
+              A readonly Array of Arrays of Float32Arrays. The top-level Array
+              is organized by output; each output may contain multiple
+              channels; each channel contains a Float32Array of sample data.
+              The initial size of the channel array will be determined by the
+              number of channels specified for that output in the
+              createAudioWorkerNode() method. However, an onprocess handler may
+              alter this number of channels in the output dynamically, either
+              by adding a Float32Array of blocksize length (128) or by reducing
+              the Array (by reducing the Array.length or by using Array.pop()
+              or Array.slice(). The event object, the Array and the
+              Float32Arrays will be reused by the processing system, in order
+              to minimize memory churn.
+            </p>
+            <p>
+              Any reordering performed on the Array for an output will not
+              reorganize the connections to the channels for subsequent events.
+            </p>
+          </dd>
+          <dt>
+            readonly attribute object parameters
+          </dt>
+          <dd>
+            This object attribute exposes a correspondingly-named read-only
+            <a>Float32Array</a> for each parameter that has been added via
+            <a>addParameter</a>. As this is dynamic, this cannot be captured in
+            IDL. The length of this Float32Array will correspond to the length
+            of the inputBuffer. The contents of this Float32Array will be the
+            values to be used for the AudioParam at the corresponding points in
+            time. It is expected that this Float32Array will be reused by the
+            audio engine.
+          </dd>
+        </dl>

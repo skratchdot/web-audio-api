@@ -1,0 +1,392 @@
+<dl title="interface AudioParam" class="idl">
+          <dt>
+            attribute float value
+          </dt>
+          <dd>
+            <p>
+              The parameter&apos;s floating-point value. This attribute is
+              initialized to the <code>defaultValue</code>. <span class="synchronous">If <code>value</code> is set during a time when
+              there are any automation events scheduled then it will be ignored
+              and no exception will be thrown.</span>
+            </p>
+            <p>
+              The effect of setting this attribute is equivalent to calling
+              <code>setValueAtTime()</code> with the current
+              <code>AudioContext</code>&apos;s <code>currentTime</code> and the
+              requested value. Subsequent accesses to this attribute&apos;s getter
+              will return the same value.
+            </p>
+          </dd>
+          <dt>
+            readonly attribute float defaultValue
+          </dt>
+          <dd>
+            Initial value for the <code>value</code> attribute.
+          </dd>
+          <dt>
+            readonly attribute float minValue
+          </dt>
+          <dd>
+            The nominal minimum value that the parameter can take. Together
+            with <code>maxValue</code>, this forms the <a>nominal range</a> for
+            this parameter.
+          </dd>
+          <dt>
+            readonly attribute float maxValue
+          </dt>
+          <dd>
+            The nominal maximum value that the parameter can take. Together
+            with <code>minValue</code>, this forms the <a>nominal range</a> for
+            this parameter.
+          </dd>
+          <dt>
+            AudioParam setValueAtTime(float value, double startTime)
+          </dt>
+          <dd>
+            <p>
+              Schedules a parameter value change at the given time.
+            </p>
+            <dl class="parameters">
+              <dt>
+                float value
+              </dt>
+              <dd>
+                The value the parameter will change to at the given time.
+              </dd>
+              <dt>
+                double startTime
+              </dt>
+              <dd>
+                The time in the same time coordinate system as the
+                <a><code>BaseAudioContext</code></a>&apos;s <a href="#widl-AudioContext-currentTime">currentTime</a> attribute at
+                which the parameter changes to the given value. <span class="synchronous">A TypeError exception MUST be thrown if
+                <code>startTime</code> is negative or is not a finite
+                number.</span>
+              </dd>
+            </dl>
+            <p>
+              If there are no more events after this <em>SetValue</em> event,
+              then for \(t \geq T_0\), \(v(t) = V\), where \(T_0\) is the
+              <code>startTime</code> parameter and \(V\) is the
+              <code>value</code> parameter. In other words, the value will
+              remain constant.
+            </p>
+            <p>
+              If the next event (having time \(T_1\)) after this
+              <em>SetValue</em> event is not of type <em>LinearRampToValue</em>
+              or <em>ExponentialRampToValue</em>, then, for \(T_0 \leq t &lt;
+              T_1\):
+            </p>
+            <pre class="nohighlight">
+              $$
+                v(t) = V
+              $$
+            
+</pre>
+            <p>
+              In other words, the value will remain constant during this time
+              interval, allowing the creation of &quot;step&quot; functions.
+            </p>
+            <p>
+              If the next event after this <em>SetValue</em> event is of type
+              <em>LinearRampToValue</em> or <em>ExponentialRampToValue</em>
+              then please see <code><a href="#widl-AudioParam-linearRampToValueAtTime-AudioParam-float-value-double-endTime">
+              linearRampToValueAtTime</a></code> or <code><a href="#widl-AudioParam-exponentialRampToValueAtTime-AudioParam-float-value-double-endTime">
+              exponentialRampToValueAtTime</a></code>, respectively.
+            </p>
+          </dd>
+          <dt>
+            AudioParam linearRampToValueAtTime(float value, double endTime)
+          </dt>
+          <dd>
+            <p>
+              Schedules a linear continuous change in parameter value from the
+              previous scheduled parameter value to the given value.
+            </p>
+            <dl class="parameters">
+              <dt>
+                float value
+              </dt>
+              <dd>
+                The value the parameter will linearly ramp to at the given
+                time.
+              </dd>
+              <dt>
+                double endTime
+              </dt>
+              <dd>
+                The time in the same time coordinate system as the
+                <a><code>AudioContext</code></a>&apos;s <a href="#widl-BaseAudioContext-currentTime">currentTime</a> attribute
+                at which the automation ends. <span class="synchronous">A
+                TypeError exception MUST be thrown if <code>endTime</code> is
+                negative or is not a finite number.</span>
+              </dd>
+            </dl>
+            <p>
+              The value during the time interval \(T_0 \leq t &lt; T_1\) (where
+              \(T_0\) is the time of the previous event and \(T_1\) is the
+              <code>endTime</code> parameter passed into this method) will be
+              calculated as:
+            </p>
+            <pre class="nohighlight">
+              $$
+                v(t) = V_0 + (V_1 - V_0) \frac{t - T_0}{T_1 - T_0}
+              $$
+            </pre>
+            <p>
+              Where \(V_0\) is the value at the time \(T_0\) and \(V_1\) is the
+              <code>value</code> parameter passed into this method.
+            </p>
+            <p>
+              If there are no more events after this LinearRampToValue event
+              then for \(t \geq T_1\), \(v(t) = V_1\).
+            </p>
+            <p>
+              If there is no event preceding this event, the linear ramp
+              behaves as if <code>setValueAtTime(value, currentTime)</code>
+              were called where <code>value</code> is the current value of the
+              attribute and <code>currentTime</code> is the context <a href="#widl-AudioContext-currentTime">currentTime</a> at the time
+              <code>linearRampToValueAtTime</code> is called.
+            </p>
+          </dd>
+          <dt>
+            AudioParam exponentialRampToValueAtTime(float value, double
+            endTime)
+          </dt>
+          <dd>
+            <p>
+              Schedules an exponential continuous change in parameter value
+              from the previous scheduled parameter value to the given value.
+              Parameters representing filter frequencies and playback rate are
+              best changed exponentially because of the way humans perceive
+              sound.
+            </p>
+            <p>
+              The value during the time interval \(T_0 \leq t &lt; T_1\) (where
+              \(T_0\) is the time of the previous event and \(T_1\) is the
+              <code>endTime</code> parameter passed into this method) will be
+              calculated as:
+            </p>
+            <pre class="nohighlight">
+              $$
+                v(t) = V_0 \left(\frac{V_1}{V_0}\right)^\frac{t - T_0}{T_1 - T_0}
+              $$
+            </pre>
+            <p>
+              where \(V_0\) is the value at the time \(T_0\) and \(V_1\) is the
+              <code>value</code> parameter passed into this method. If \(V_0\)
+              and \(V_1\) have opposite signs or if \(V_0\) is zero, then
+              \(v(t) = V_0\) for \(T_0 \le t \lt T_1\).
+            </p>
+            <p>
+              This also implies an exponential ramp to 0 is not possible. A
+              good approximation can be achieved using <a href="#widl-AudioParam-setTargetAtTime-AudioParam-float-target-double-startTime-float-timeConstant">
+              setTargetAtTime</a> with an appropriately chosen time constant.
+            </p>
+            <p>
+              If there are no more events after this ExponentialRampToValue
+              event then for \(t \geq T_1\), \(v(t) = V_1\).
+            </p>
+            <p>
+              If there is no event preceding this event, the exponential ramp
+              behaves as if <code>setValueAtTime(value, currentTime)</code>
+              were called where <code>value</code> is the current value of the
+              attribute and <code>currentTime</code> is the context <a href="#widl-AudioContext-currentTime">currentTime</a> at the time
+              <code>exponentialRampToValueAtTime</code> is called.
+            </p>
+            <dl class="parameters">
+              <dt>
+                float value
+              </dt>
+              <dd>
+                The value the parameter will exponentially ramp to at the given
+                time. <span class="synchronous">A NotSupportedError exception
+                MUST be thrown if this value is equal to 0.</span>
+              </dd>
+              <dt>
+                double endTime
+              </dt>
+              <dd>
+                The time in the same time coordinate system as the
+                <a><code>AudioContext</code></a>&apos;s <a href="#widl-BaseAudioContext-currentTime">currentTime</a> attribute
+                where the exponential ramp ends. <span class="synchronous">A
+                TypeError exception MUST be thrown if <code>endTime</code> is
+                negative or is not a finite number.</span>
+              </dd>
+            </dl>
+          </dd>
+          <dt>
+            AudioParam setTargetAtTime(float target, double startTime, float
+            timeConstant)
+          </dt>
+          <dd>
+            <p>
+              Start exponentially approaching the target value at the given
+              time with a rate having the given time constant. Among other
+              uses, this is useful for implementing the &quot;decay&quot; and &quot;release&quot;
+              portions of an ADSR envelope. Please note that the parameter
+              value does not immediately change to the target value at the
+              given time, but instead gradually changes to the target value.
+            </p>
+            <dl class="parameters">
+              <dt>
+                float target
+              </dt>
+              <dd>
+                The value the parameter will <em>start</em> changing to at the
+                given time.
+              </dd>
+              <dt>
+                double startTime
+              </dt>
+              <dd>
+                The time at which the exponential approach will begin, in the
+                same time coordinate system as the
+                <a><code>AudioContext</code></a>&apos;s <a href="#widl-BaseAudioContext-currentTime">currentTime</a> attribute.
+                <span class="synchronous">A TypeError exception MUST be thrown
+                if <code>start</code> is negative or is not a finite
+                number.</span>
+              </dd>
+              <dt>
+                float timeConstant
+              </dt>
+              <dd>
+                The time-constant value of first-order filter (exponential)
+                approach to the target value. The larger this value is, the
+                slower the transition will be. <span class="synchronous">The
+                value must be strictly positive or a TypeError exception MUST
+                be thrown.</span>
+                <p>
+                  More precisely, <em>timeConstant</em> is the time it takes a
+                  first-order linear continuous time-invariant system to reach
+                  the value \(1 - 1/e\) (around 63.2%) given a step input
+                  response (transition from 0 to 1 value).
+                </p>
+              </dd>
+            </dl>
+            <p>
+              During the time interval: \(T_0 \leq t &lt; T_1\), where \(T_0\)
+              is the <code>startTime</code> parameter and \(T_1\) represents
+              the time of the event following this event (or \(\infty\) if
+              there are no following events):
+            </p>
+            <pre class="nohighlight">
+              $$
+                v(t) = V_1 + (V_0 - V_1)\, e^{-\left(\frac{t - T_0}{\tau}\right)}
+              $$
+            
+</pre>
+            <p>
+              where \(V_0\) is the initial value (the <code>.value</code>
+              attribute) at \(T_0\) (the <code>startTime</code> parameter),
+              \(V_1\) is equal to the <code>target</code> parameter, and
+              \(\tau\) is the <code>timeConstant</code> parameter.
+            </p>
+          </dd>
+          <dt>
+            AudioParam setValueCurveAtTime(Float32Array values, double
+            startTime, double duration)
+          </dt>
+          <dd>
+            <p>
+              Sets an array of arbitrary parameter values starting at the given
+              time for the given duration. The number of values will be scaled
+              to fit into the desired duration.
+            </p>
+            <dl class="parameters">
+              <dt>
+                Float32Array values
+              </dt>
+              <dd>
+                <p>
+                  A Float32Array representing a parameter value curve. These
+                  values will apply starting at the given time and lasting for
+                  the given duration. When this method is called, an internal
+                  copy of the curve is created for automation purposes.
+                  Subsequent modifications of the contents of the passed-in
+                  array therefore have no effect on the <a>AudioParam</a>.
+                </p>
+                <p>
+                  An <code>InvalidStateError</code> MUST be thrown if this
+                  attribute is with a Float32Array that has a length less than
+                  2.
+                </p>
+              </dd>
+              <dt>
+                double startTime
+              </dt>
+              <dd>
+                The start time in the same time coordinate system as the
+                <a><code>AudioContext</code></a>&apos;s <a href="#widl-BaseAudioContext-currentTime">currentTime</a> attribute
+                at which the value curve will be applied. <span class="synchronous">A TypeError exception MUST be thrown if
+                <code>startTime</code> is negative or is not a finite
+                number.</span>
+              </dd>
+              <dt>
+                double duration
+              </dt>
+              <dd>
+                The amount of time in seconds (after the <em>time</em>
+                parameter) where values will be calculated according to the
+                <em>values</em> parameter. A <code>TypeError</code> exception
+                MUST be thrown if <code>duration</code> is not strictly
+                positive or is not a finite number.
+              </dd>
+            </dl>
+            <p>
+              Let \(T_0\) be <code>startTime</code>, \(T_D\) be
+              <code>duration</code>, \(V\) be the <code>values</code> array,
+              and \(N\) be the length of the <code>values</code> array. Then,
+              during the time interval: \(T_0 \le t &lt; T_0 + T_D\), let
+            </p>
+            <pre class="nohighlight">
+              $$
+                \begin{align*} k &amp;= \left\lfloor \frac{N - 1}{T_D}(t-T_0) \right\rfloor \\
+                \end{align*}
+              $$
+            
+</pre>
+            <p>
+              Then \(v(t)\) is computed by linearly interpolating between
+              \(V[k]\) and \(V[k+1]\),
+            </p>
+            <p>
+              After the end of the curve time interval (\(t \ge T_0 + T_D\)),
+              the value will remain constant at the final curve value, until
+              there is another automation event (if any).
+            </p>
+            <p>
+              An implicit call to <code><a href="#widl-AudioParam-setValueAtTime-AudioParam-float-value-double-startTime">
+              setValueAtTime</a></code> is made at time \(T_0 + T_D\) with
+              value \(V[N-1]\) so that following automations will start from
+              the end of the <code><a href="#widl-AudioParam-setValueCurveAtTime-AudioParam-Float32Array-values-double-startTime-double-duration">
+              setValueCurveAtTime</a></code> event.
+            </p>
+          </dd>
+          <dt>
+            AudioParam cancelScheduledValues(double startTime)
+          </dt>
+          <dd>
+            <p>
+              Cancels all scheduled parameter changes with times greater than
+              or equal to <code>startTime</code>. Active
+              <code><a>setTargetAtTime</a></code> automations (those with
+              <code>startTime</code> less than the supplied time value) will
+              also be cancelled.
+            </p>
+            <dl class="parameters">
+              <dt>
+                double startTime
+              </dt>
+              <dd>
+                The starting time at and after which any previously scheduled
+                parameter changes will be cancelled. It is a time in the same
+                time coordinate system as the
+                <a><code>AudioContext</code></a>&apos;s <a href="#widl-BaseAudioContext-currentTime">currentTime</a> attribute.
+                <span class="synchronous">A TypeError exception MUST be thrown
+                if <code>startTime</code> is negative or is not a finite
+                number.</span>
+              </dd>
+            </dl>
+          </dd>
+        </dl>

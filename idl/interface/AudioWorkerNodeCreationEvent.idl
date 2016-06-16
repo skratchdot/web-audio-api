@@ -1,0 +1,21 @@
+<dl title="interface AudioWorkerNodeCreationEvent : Event" class="idl">
+          <dt>
+            readonly attribute AudioWorkerNodeProcessor node
+          </dt>
+          <dd>
+            The new node being created. Any node-local data storage (e.g., the
+            buffer for a delay node) should be created on this object.
+          </dd>
+          <dt>
+            readonly attribute Array inputs
+          </dt>
+          <dd>
+            An array of channelCounts for the inputs.
+          </dd>
+          <dt>
+            readonly attribute Array outputs
+          </dt>
+          <dd>
+            An array of channelCounts for the outputs.
+          </dd>
+        </dl>

@@ -1,0 +1,165 @@
+<dl title="[Constructor(unsigned long numberOfChannels, unsigned long length, float sampleRate)] interface OfflineAudioContext : BaseAudioContext" class="idl">
+          <dt>
+            Promise&lt;AudioBuffer&gt; startRendering()
+          </dt>
+          <dd>
+            <p>
+              Given the current connections and scheduled changes, starts
+              rendering audio. The system shall ensure that the
+              <code>OfflineAudioContext</code> is not garbage collected until
+              either the promise is resolved and any callback function is
+              called and completes, or until the <code>suspend</code> function
+              is called.
+            </p>
+            <p>
+              Although the primary method of getting the rendered audio data is
+              via its promise return value, the instance will also fire an
+              event named <code>complete</code> for legacy reasons.
+            </p>
+            <p>
+              <span class="synchronous">When <code>startRendering</code> is
+              called, the following steps must be performed on the <a>control
+              thread</a>:</span>
+            </p>
+            <ol>
+              <li>Set a flag called <var>renderingStarted</var> on the
+              <a>OfflineAudioContext</a> to <em>true</em>.
+              </li>
+              <li>If the <em>renderingStarted</em> flag on the
+              <a>OfflineAudioContext</a> is <em>true</em>, return a rejected
+              promise with <code>InvalidStateError</code>, and abort these
+              steps.
+              </li>
+              <li>Let <var>promise</var> be a new promise.
+              </li>
+              <li>Start to render the audio graph on another thread.
+              </li>
+              <li>Return <var>promise</var>
+              </li>
+            </ol>
+            <p>
+              When rendering an audio graph on another thread, the following
+              steps MUST happen on a <a>rendering thread</a> that is created
+              for the occasion.
+            </p>
+            <ol>
+              <li>Let <var>buffer</var> be a new <code>AudioBuffer</code>, with
+              a number of channels, length and sample rate equal respectively
+              to the <code>numberOfChannels</code>, <code>length</code> and
+              <code>sampleRate</code> parameters used when this instance&apos;s
+              constructor was called.
+              </li>
+              <li>Given the current connections and scheduled changes, start
+              rendering <code>length</code> sample-frames of audio into
+              <var>buffer</var>.
+              </li>
+              <li>For every render quantum, check and suspend the rendering if
+              necessary.
+              </li>
+              <li>If a suspended context is resumed, continue to render the
+              buffer.
+              </li>
+              <li>Once the rendering is complete, queue a task on the
+              <a>control thread</a>&apos;s event loop to perform the following
+              steps:
+                <ol>
+                  <li>Resolve <var>promise</var> with <var>buffer</var>.
+                  </li>
+                  <li>If a suspended context is resumed, continue to render the
+                  buffer.
+                  </li>
+                  <li>Once the rendering is complete,
+                    <ol>
+                      <li>Resolve <var>promise</var> with <var>buffer</var>.
+                      </li>
+                      <li>Queue a task to fire an event named
+                      <code>complete</code> at this instance, using an instance
+                      of <a><code>OfflineAudioCompletionEvent</code></a> whose
+                      <code>renderedBuffer</code> property is set to
+                      <var>buffer</var>.
+                      </li>
+                    </ol>
+                  </li>
+                </ol>
+              </li>
+            </ol>
+          </dd>
+          <dt>
+            Promise&lt;void&gt; resume()
+          </dt>
+          <dd>
+            <p>
+              Resumes the progression of time in an audio context that has been
+              suspended. The promise resolves immediately because the
+              <a><code>OfflineAudioContext</code></a> does not require the
+              audio hardware. If the context is not currently suspended or the
+              rendering has not started, the promise is rejected with
+              <code>InvalidStateError</code>.
+            </p>
+            <p>
+              In contrast to a live <a><code>AudioContext</code></a>, the value
+              of <a href="#widl-BaseAudioContext-currentTime">currentTime</a>
+              always reflects the start time of the next block to be rendered
+              by the audio graph, since the context&apos;s audio stream does not
+              advance in time during suspension.
+            </p>
+          </dd>
+          <dt>
+            Promise&lt;void&gt; suspend()
+          </dt>
+          <dd>
+            <p>
+              Schedules a suspension of the time progression in the audio
+              context at the specified time and returns a promise. This is
+              generally useful when manipulating the audio graph synchronously
+              on <a><code>OfflineAudioContext</code></a>.
+            </p>
+            <p>
+              Note that the maximum precision of suspension is the size of the
+              render quantum and the specified suspension time will be rounded
+              down to the nearest render quantum boundary. For this reason, it
+              is not allowed to schedule multiple suspends at the same
+              quantized frame. Also scheduling should be done while the context
+              is not running to ensure the precise suspension.
+            </p>
+            <dl class="parameters">
+              <dt>
+                double suspendTime
+              </dt>
+              <dd>
+                Schedules a suspension of the rendering at the specified time,
+                which is quantized and rounded down to the render quantum size.
+                If the quantized frame number
+                <ol>
+                  <li>is negative or
+                  </li>
+                  <li>is less than or equal to the current time or
+                  </li>
+                  <li>is greater than or equal to the total render duration or
+                  </li>
+                  <li>is scheduled by another suspend for the same time,
+                  </li>
+                </ol>then the promise is rejected with
+                <code>InvalidStateError</code>.
+              </dd>
+            </dl>
+          </dd>
+          <dt>
+            readonly attribute unsigned long length
+          </dt>
+          <dd>
+            <p>
+              The size of the buffer in sample-frames. This is the same as the
+              value of the <code>length</code> parameter for the constructor.
+            </p>
+          </dd>
+          <dt>
+            attribute EventHandler oncomplete
+          </dt>
+          <dd>
+            <p>
+              An EventHandler of type <a href="#OfflineAudioCompletionEvent">OfflineAudioCompletionEvent</a>.
+              It is the last event fired on an <a>OfflineAudioContext</a>.
+            </p>
+          </dd>
+        </dl>

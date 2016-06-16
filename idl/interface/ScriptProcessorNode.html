@@ -1,0 +1,22 @@
+<dl title="interface ScriptProcessorNode : AudioNode" class="idl">
+          <dt>
+            attribute EventHandler onaudioprocess
+          </dt>
+          <dd>
+            A property used to set the <code>EventHandler</code> (described in
+            <cite><a href="https://html.spec.whatwg.org/multipage/webappapis.html#eventhandler">
+            HTML</a></cite>[[!HTML]]) for the <!--a href=
+            "#audioprocess-spnode"--><a><code>audioprocess</code></a> event
+that is dispatched to <a><code>ScriptProcessorNode</code></a> node types. An
+event of type <a><code>AudioProcessingEvent</code></a> will be dispatched to
+the event handler.
+          </dd>
+          <dt>
+            readonly attribute long bufferSize
+          </dt>
+          <dd>
+            The size of the buffer (in sample-frames) which needs to be
+            processed each time <code>onaudioprocess</code> is called. Legal
+            values are (256, 512, 1024, 2048, 4096, 8192, 16384).
+          </dd>
+        </dl>

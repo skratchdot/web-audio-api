@@ -1,0 +1,107 @@
+<dl title="interface AudioWorker : Worker" class="idl">
+          <dt>
+            void terminate()
+          </dt>
+          <dd>
+            The terminate() method, when invoked, must cause the cessation of
+            any <a>AudioProcessEvent</a>s being dispatched inside the
+            AudioWorker&apos;s associated <a>AudioWorkerGlobalScope</a>. It will
+            also cause all associated AudioWorkerNodes to cease processing, and
+            will cause the destruction of the worker&apos;s context. In practical
+            terms, this means all nodes created from this AudioWorker will
+            disconnect themselves, and will cease performing any useful
+            functions.
+          </dd>
+          <dt>
+            void postMessage(any message, optional sequence&lt;Transferable&gt;
+            transfer)
+          </dt>
+          <dd>
+            postMessage may be called to send a message to the
+            <a>AudioWorkerGlobalScope</a>, similar to the algorithm defined by
+            [[!Workers]].
+          </dd>
+          <dt>
+            readonly attribute AudioWorkerParamDescriptor[] parameters
+          </dt>
+          <dd>
+            This array contains descriptors for each of the current parameters
+            on nodes created by this AudioWorker. This enables users of the
+            AudioWorker to easily iterate over the AudioParam names and default
+            values.
+          </dd>
+          <dt>
+            attribute EventHandler onmessage
+          </dt>
+          <dd>
+            The onmessage handler is called whenever the
+            <a>AudioWorkerGlobalScope</a> posts a message back to the main
+            thread.
+          </dd>
+          <dt>
+            attribute EventHandler onloaded
+          </dt>
+          <dd>
+            The onloaded handler is called after the script is successfully
+            loaded and its global scope code is run to initialize the
+            <a>AudioWorkerGlobalScope</a>.
+          </dd>
+          <dt>
+            AudioWorkerNode createNode(int numberOfInputs, int numberOfOutputs)
+          </dt>
+          <dd>
+            Creates a node instance in the audio worker.
+          </dd>
+          <dt>
+            AudioParam addParameter(DOMString name, float defaultValue)
+          </dt>
+          <dd>
+            <p>
+              Causes a correspondingly-named read-only <a>AudioParam</a> to be
+              present on any <a>AudioWorkerNode</a>s created (previously or
+              subsequently) by this <a>AudioWorker</a>, and a
+              correspondingly-named read-only <a>Float32Array</a> to be present
+              on the <a><code>parameters</code></a> object exposed on the
+              <a>AudioProcessEvent</a> on subsequent audio processing events
+              for such nodes. The AudioParam may immediately have its
+              scheduling methods called, its .<a>value</a> set, or
+              <a>AudioNode</a>s connected to it.
+            </p>
+            <p>
+              The <code>name</code> parameter is the name used for the
+              read-only AudioParam added to the AudioWorkerNode, and the name
+              used for the read-only <code>Float32Array</code> that will be
+              present on the <a><code>parameters</code></a> object exposed on
+              subsequent <a>AudioProcessEvent</a>s.
+            </p>
+            <p>
+              The <a><code>defaultValue</code></a> parameter is the default
+              value for the <a>AudioParam</a>&apos;s <a>value</a> attribute, as well
+              as therefore the default value that will appear in the
+              Float32Array in the worker script (if no other parameter changes
+              or connections affect the value).
+            </p>
+          </dd>
+          <dt>
+            void removeParameter(DOMString name)
+          </dt>
+          <dd>
+            <p>
+              Removes a previously-added parameter named <code>name</code> from
+              all <a>AudioWorkerNode</a>s associated with this
+              <a>AudioWorker</a> and its <a>AudioWorkerGlobalScope</a>. This
+              will also remove the correspondingly-named read-only
+              <a>AudioParam</a> from the <a>AudioWorkerNode</a>, and will
+              remove the correspondingly-named read-only <a>Float32Array</a>s
+              from the <a>AudioProcessEvent</a>&apos;s
+              <a><code>parameters</code></a> member on subsequent audio
+              processing events. <span class="synchronous">A NotFoundError
+              exception must be thrown if no parameter with that name exists on
+              this <a>AudioWorker</a></span>.
+            </p>
+            <p>
+              The <code>name</code> parameter identifies the parameter to be
+              removed.
+            </p>
+          </dd>
+        </dl>

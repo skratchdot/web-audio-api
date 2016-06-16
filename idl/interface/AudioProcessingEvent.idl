@@ -1,0 +1,32 @@
+<dl title="interface AudioProcessingEvent : Event" class="idl">
+          <dt>
+            readonly attribute double playbackTime
+          </dt>
+          <dd>
+            The time when the audio will be played in the same time coordinate
+            system as the <a><code>AudioContext</code></a>&apos;s <a href="#widl-BaseAudioContext-currentTime">currentTime</a>.
+          </dd>
+          <dt>
+            readonly attribute AudioBuffer inputBuffer
+          </dt>
+          <dd>
+            An AudioBuffer containing the input audio data. It will have a
+            number of channels equal to the <code>numberOfInputChannels</code>
+            parameter of the createScriptProcessor() method. This AudioBuffer
+            is only valid while in the scope of the <code>onaudioprocess</code>
+            function. Its values will be meaningless outside of this scope.
+          </dd>
+          <dt>
+            readonly attribute AudioBuffer outputBuffer
+          </dt>
+          <dd>
+            An AudioBuffer where the output audio data should be written. It
+            will have a number of channels equal to the
+            <code>numberOfOutputChannels</code> parameter of the
+            createScriptProcessor() method. Script code within the scope of the
+            <code>onaudioprocess</code> function is expected to modify the
+            <code>Float32Array</code> arrays representing channel data in this
+            AudioBuffer. Any script modifications to this AudioBuffer outside
+            of this scope will not produce any audible effects.
+          </dd>
+        </dl>

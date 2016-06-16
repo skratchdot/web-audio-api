@@ -1,0 +1,18 @@
+<dl title="enum ChannelInterpretation" class="idl">
+          <dt>
+            speakers
+          </dt>
+          <dd>
+            use <a href="#ChannelLayouts">up-down-mix equations for
+            mono/stereo/quad/5.1</a>. In cases where the number of channels do
+            not match any of these basic speaker layouts, revert to &quot;discrete&quot;.
+          </dd>
+          <dt>
+            discrete
+          </dt>
+          <dd>
+            Up-mix by filling channels until they run out then zero out
+            remaining channels. down-mix by filling as many channels as
+            possible, then dropping remaining channels.
+          </dd>
+        </dl>

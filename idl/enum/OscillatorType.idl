@@ -1,0 +1,34 @@
+<pre id="enum-OscillatorType" class="idl">
+enum OscillatorType {
+    "sine",
+    "square",
+    "sawtooth",
+    "triangle",
+    "custom"
+};
+</pre>
+<table class="simple">
+  <tr>
+    <th colspan="2">Enumeration description:</th>
+  </tr>
+  <tr>
+    <td><dfn for="OscillatorType">sine</dfn></td>
+    <td>A sine wave</td>
+</tr>
+    <tr>
+    <td><dfn for="OscillatorType">square</dfn></td>
+    <td>A square wave of duty period 0.5</td>
+</tr>
+    <tr>
+    <td><dfn for="OscillatorType">sawtooth</dfn></td>
+    <td>A sawtooth wave</td>
+</tr>
+    <tr>
+    <td><dfn for="OscillatorType">triangle</dfn></td>
+    <td>A triangle wave</td>
+</tr>
+    <tr>
+    <td><dfn for="OscillatorType">custom</dfn></td>
+    <td>A custom periodic wave</td>
+</tr>
+</table>
