@@ -30,3 +30,14 @@ done
 
 ./compile.sh;
 cp index.html index-with-both-lcase.html
+
+# print links for pr
+num=0
+for i in $interfaces; do
+  lcase="$(tr [A-Z] [a-z] <<< "$i")"
+  num=$((num+1))
+  echo ""
+  echo "#### $num. $i:"
+  echo "- https://projects.skratchdot.com/web-audio-api/index-with-both-lcase.html#$i"
+  echo "- https://projects.skratchdot.com/web-audio-api/index-with-both-lcase.html#$lcase"
+done
