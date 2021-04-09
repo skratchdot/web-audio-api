@@ -8,7 +8,7 @@
   <meta content="Bikeshed version c5fd42b86, updated Mon Apr 5 16:27:33 2021 -0700" name="generator">
   <link href="https://www.w3.org/TR/webaudio/" rel="canonical">
   <link href="favicon.png" rel="icon">
-  <meta content="fd0d25ad9200daba4e34cad7ca512f05ba4c39f7" name="document-revision">
+  <meta content="f5b0e575cb71b4364c418f916301808c482e614d" name="document-revision">
   <link as="script" href="https://www.w3.org/scripts/MathJax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" rel="preload">
   <link as="script" href="https://www.w3.org/scripts/MathJax/2.7.5/jax/output/HTML-CSS/jax.js?rev=2.7.5" rel="preload">
   <link as="script" href="https://www.w3.org/scripts/MathJax/2.7.5/jax/output/HTML-CSS/fonts/STIX/fontdata.js?rev=2.7.5" rel="preload">
@@ -1000,7 +1000,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
         <li><a href="#fft-windowing-and-smoothing-over-time"><span class="secno">1.8.6</span> <span class="content"> FFT Windowing and Smoothing over Time</span></a>
        </ol>
       <li>
-       <a href="#AudioBuffer①"><span class="secno">1.9</span> <span class="content"> The <code class="idl"><span>AudioBufferSourceNode</span></code> Interface</span></a>
+       <a href="#AudioBufferSourceNode"><span class="secno">1.9</span> <span class="content"> The <code class="idl"><span>AudioBufferSourceNode</span></code> Interface</span></a>
        <ol class="toc">
         <li><a href="#AudioBufferSourceNode-constructors"><span class="secno">1.9.1</span> <span class="content"> Constructors</span></a>
         <li><a href="#AudioBufferSourceNode-attributes"><span class="secno">1.9.2</span> <span class="content"> Attributes</span></a>
@@ -1599,7 +1599,7 @@ other visualization applications.</p>
 memory-resident audio assets. These can represent one-shot sounds, or
 longer audio clips.</p>
     <li data-md>
-     <p>An <code class="idl"><a data-link-type="idl" href="#audiobuffersourcenode" id="ref-for-audiobuffersourcenode">AudioBufferSourceNode</a></code> interface, an <code class="idl"><a data-link-type="idl" href="#AudioNode" id="ref-for-AudioNode⑨">AudioNode</a></code> which generates audio from an
+     <p>An <code class="idl"><a data-link-type="idl" href="#AudioBufferSourceNode" id="ref-for-AudioBufferSourceNode">AudioBufferSourceNode</a></code> interface, an <code class="idl"><a data-link-type="idl" href="#AudioNode" id="ref-for-AudioNode⑨">AudioNode</a></code> which generates audio from an
 AudioBuffer.</p>
     <li data-md>
      <p>An <code class="idl"><a data-link-type="idl" href="#AudioDestinationNode" id="ref-for-AudioDestinationNode①">AudioDestinationNode</a></code> interface, an <code class="idl"><a data-link-type="idl" href="#AudioNode" id="ref-for-AudioNode①⓪">AudioNode</a></code> subclass representing the final
@@ -1773,7 +1773,7 @@ Additionally, a <code class="idl"><a data-link-type="idl" href="#BaseAudioContex
   <a data-link-type="idl-name" href="#AudioBuffer" id="ref-for-AudioBuffer②"><c- n>AudioBuffer</c-></a> <a class="idl-code" data-link-type="method" href="#dom-baseaudiocontext-createbuffer" id="ref-for-dom-baseaudiocontext-createbuffer"><c- g>createBuffer</c-></a> (<a class="idl-code" data-link-type="interface" href="https://heycam.github.io/webidl/#idl-unsigned-long" id="ref-for-idl-unsigned-long"><c- b>unsigned</c-> <c- b>long</c-></a> <dfn class="idl-code" data-dfn-for="BaseAudioContext/createBuffer(numberOfChannels, length, sampleRate)" data-dfn-type="argument" data-export id="dom-baseaudiocontext-createbuffer-numberofchannels-length-samplerate-numberofchannels"><code><c- g>numberOfChannels</c-></code><a class="self-link" href="#dom-baseaudiocontext-createbuffer-numberofchannels-length-samplerate-numberofchannels"></a></dfn>,
                             <a class="idl-code" data-link-type="interface" href="https://heycam.github.io/webidl/#idl-unsigned-long" id="ref-for-idl-unsigned-long①"><c- b>unsigned</c-> <c- b>long</c-></a> <dfn class="idl-code" data-dfn-for="BaseAudioContext/createBuffer(numberOfChannels, length, sampleRate)" data-dfn-type="argument" data-export id="dom-baseaudiocontext-createbuffer-numberofchannels-length-samplerate-length"><code><c- g>length</c-></code><a class="self-link" href="#dom-baseaudiocontext-createbuffer-numberofchannels-length-samplerate-length"></a></dfn>,
                             <a class="idl-code" data-link-type="interface" href="https://heycam.github.io/webidl/#idl-float" id="ref-for-idl-float①"><c- b>float</c-></a> <dfn class="idl-code" data-dfn-for="BaseAudioContext/createBuffer(numberOfChannels, length, sampleRate)" data-dfn-type="argument" data-export id="dom-baseaudiocontext-createbuffer-numberofchannels-length-samplerate-samplerate"><code><c- g>sampleRate</c-></code><a class="self-link" href="#dom-baseaudiocontext-createbuffer-numberofchannels-length-samplerate-samplerate"></a></dfn>);
-  <a data-link-type="idl-name" href="#audiobuffersourcenode" id="ref-for-audiobuffersourcenode①"><c- n>AudioBufferSourceNode</c-></a> <a class="idl-code" data-link-type="method" href="#dom-baseaudiocontext-createbuffersource" id="ref-for-dom-baseaudiocontext-createbuffersource"><c- g>createBufferSource</c-></a> ();
+  <a data-link-type="idl-name" href="#AudioBufferSourceNode" id="ref-for-AudioBufferSourceNode①"><c- n>AudioBufferSourceNode</c-></a> <a class="idl-code" data-link-type="method" href="#dom-baseaudiocontext-createbuffersource" id="ref-for-dom-baseaudiocontext-createbuffersource"><c- g>createBufferSource</c-></a> ();
   <a data-link-type="idl-name" href="#ChannelMergerNode" id="ref-for-ChannelMergerNode①"><c- n>ChannelMergerNode</c-></a> <a class="idl-code" data-link-type="method" href="#dom-baseaudiocontext-createchannelmerger" id="ref-for-dom-baseaudiocontext-createchannelmerger"><c- g>createChannelMerger</c-></a> (<c- b>optional</c-> <a class="idl-code" data-link-type="interface" href="https://heycam.github.io/webidl/#idl-unsigned-long" id="ref-for-idl-unsigned-long②"><c- b>unsigned</c-> <c- b>long</c-></a> <a class="idl-code" data-link-type="argument" href="#dom-baseaudiocontext-createchannelmerger-numberofinputs-numberofinputs" id="ref-for-dom-baseaudiocontext-createchannelmerger-numberofinputs-numberofinputs"><c- g>numberOfInputs</c-></a> = 6);
   <a data-link-type="idl-name" href="#ChannelSplitterNode" id="ref-for-ChannelSplitterNode①"><c- n>ChannelSplitterNode</c-></a> <a class="idl-code" data-link-type="method" href="#dom-baseaudiocontext-createchannelsplitter" id="ref-for-dom-baseaudiocontext-createchannelsplitter"><c- g>createChannelSplitter</c-></a> (
     <c- b>optional</c-> <a class="idl-code" data-link-type="interface" href="https://heycam.github.io/webidl/#idl-unsigned-long" id="ref-for-idl-unsigned-long③"><c- b>unsigned</c-> <c- b>long</c-></a> <a class="idl-code" data-link-type="argument" href="#dom-baseaudiocontext-createchannelsplitter-numberofoutputs-numberofoutputs" id="ref-for-dom-baseaudiocontext-createchannelsplitter-numberofoutputs-numberofoutputs"><c- g>numberOfOutputs</c-></a> = 6);
@@ -2105,9 +2105,9 @@ nominal range.</span></p>
      </div>
      <p><dfn class="dfn-paneled idl-code" data-dfn-for="BaseAudioContext" data-dfn-type="method" data-export id="dom-baseaudiocontext-createbuffersource"><code>createBufferSource()</code></dfn></p>
     <dd data-md>
-     <p><a data-link-type="dfn" href="#factory-method" id="ref-for-factory-method②">Factory method</a> for a <code class="idl"><a data-link-type="idl" href="#audiobuffersourcenode" id="ref-for-audiobuffersourcenode②">AudioBufferSourceNode</a></code>.</p>
+     <p><a data-link-type="dfn" href="#factory-method" id="ref-for-factory-method②">Factory method</a> for a <code class="idl"><a data-link-type="idl" href="#AudioBufferSourceNode" id="ref-for-AudioBufferSourceNode②">AudioBufferSourceNode</a></code>.</p>
      <div> <em>No parameters.</em> </div>
-     <div> <em>Return type:</em> <code class="idl"><a data-link-type="idl" href="#audiobuffersourcenode" id="ref-for-audiobuffersourcenode③">AudioBufferSourceNode</a></code> </div>
+     <div> <em>Return type:</em> <code class="idl"><a data-link-type="idl" href="#AudioBufferSourceNode" id="ref-for-AudioBufferSourceNode③">AudioBufferSourceNode</a></code> </div>
     <dt data-md>
      <div class="mdn-anno wrapped">
       <button class="mdn-anno-btn"><b class="all-engines-flag" title="This feature is in all current engines.">✔</b><span>MDN</span></button>
@@ -4373,7 +4373,7 @@ the <code class="idl"><a data-link-type="idl" href="#AudioBuffer" id="ref-for-Au
 node’s <code class="idl"><a data-link-type="idl" href="#dom-audiobuffersourcenode-buffer" id="ref-for-dom-audiobuffersourcenode-buffer">buffer</a></code>. If the operation fails, nothing is
 played.</p>
     <li data-md>
-     <p>When the <code class="idl"><a data-link-type="idl" href="#dom-audiobuffersourcenode-buffer" id="ref-for-dom-audiobuffersourcenode-buffer①">buffer</a></code> of an <code class="idl"><a data-link-type="idl" href="#audiobuffersourcenode" id="ref-for-audiobuffersourcenode④">AudioBufferSourceNode</a></code> is set and <code class="idl"><a data-link-type="idl" href="#dom-audiobuffersourcenode-start" id="ref-for-dom-audiobuffersourcenode-start①">AudioBufferSourceNode.start</a></code> has been
+     <p>When the <code class="idl"><a data-link-type="idl" href="#dom-audiobuffersourcenode-buffer" id="ref-for-dom-audiobuffersourcenode-buffer①">buffer</a></code> of an <code class="idl"><a data-link-type="idl" href="#AudioBufferSourceNode" id="ref-for-AudioBufferSourceNode④">AudioBufferSourceNode</a></code> is set and <code class="idl"><a data-link-type="idl" href="#dom-audiobuffersourcenode-start" id="ref-for-dom-audiobuffersourcenode-start①">AudioBufferSourceNode.start</a></code> has been
 previously called, the setter <a href="#acquire-the-content" id="ref-for-acquire-the-content⑥">acquires
 the content</a> of the <code class="idl"><a data-link-type="idl" href="#AudioBuffer" id="ref-for-AudioBuffer④⑦">AudioBuffer</a></code>. If the operation fails,
 nothing is played.</p>
@@ -5335,7 +5335,7 @@ see the description of each individual <code class="idl"><a data-link-type="idl"
 default value.</p>
      <p>Some nodes have additional <dfn class="dfn-paneled" data-dfn-for="AudioParam" data-dfn-type="dfn" data-noexport id="audioparam-automation-rate-constraints">automation rate constraints</dfn> as follows:</p>
      <dl>
-      <dt data-md><code class="idl"><a data-link-type="idl" href="#audiobuffersourcenode" id="ref-for-audiobuffersourcenode⑤">AudioBufferSourceNode</a></code>
+      <dt data-md><code class="idl"><a data-link-type="idl" href="#AudioBufferSourceNode" id="ref-for-AudioBufferSourceNode⑤">AudioBufferSourceNode</a></code>
       <dd data-md>
        <p>The <code class="idl"><a data-link-type="idl" href="#AudioParam" id="ref-for-AudioParam⑤②">AudioParam</a></code>s <code class="idl"><a data-link-type="idl" href="#dom-audiobuffersourcenode-playbackrate" id="ref-for-dom-audiobuffersourcenode-playbackrate">playbackRate</a></code> and <code class="idl"><a data-link-type="idl" href="#dom-audiobuffersourcenode-detune" id="ref-for-dom-audiobuffersourcenode-detune">detune</a></code> MUST be
 "<code class="idl"><a data-link-type="idl" href="#dom-automationrate-k-rate" id="ref-for-dom-automationrate-k-rate②">k-rate</a></code>". <span class="synchronous">An <code class="idl"><a data-link-type="idl" href="https://heycam.github.io/webidl/#invalidstateerror" id="ref-for-invalidstateerror②②">InvalidStateError</a></code> must be thrown if the rate is changed to
@@ -6035,7 +6035,7 @@ N<c- p>.</c->p<c- p>.</c->linearRampToValueAtTime<c- p>(</c-><c- mf>0</c-><c- p>
     </div>
    </div>
    <p>The interface represents the common features of source nodes such
-as <code class="idl"><a data-link-type="idl" href="#audiobuffersourcenode" id="ref-for-audiobuffersourcenode⑥">AudioBufferSourceNode</a></code>, <code class="idl"><a data-link-type="idl" href="#ConstantSourceNode" id="ref-for-ConstantSourceNode④">ConstantSourceNode</a></code>, and <code class="idl"><a data-link-type="idl" href="#OscillatorNode" id="ref-for-OscillatorNode⑤">OscillatorNode</a></code>.</p>
+as <code class="idl"><a data-link-type="idl" href="#AudioBufferSourceNode" id="ref-for-AudioBufferSourceNode⑥">AudioBufferSourceNode</a></code>, <code class="idl"><a data-link-type="idl" href="#ConstantSourceNode" id="ref-for-ConstantSourceNode④">ConstantSourceNode</a></code>, and <code class="idl"><a data-link-type="idl" href="#OscillatorNode" id="ref-for-OscillatorNode⑤">OscillatorNode</a></code>.</p>
    <p>Before a source is started (by calling <code class="idl"><a data-link-type="idl" href="#dom-audioscheduledsourcenode-start" id="ref-for-dom-audioscheduledsourcenode-start">start()</a></code>, the source node
 MUST output silence (0). After a source has been stopped (by calling <code class="idl"><a data-link-type="idl" href="#dom-audioscheduledsourcenode-stop" id="ref-for-dom-audioscheduledsourcenode-stop">stop()</a></code>),
 the source MUST then output silence (0).</p>
@@ -6097,7 +6097,7 @@ by the concrete node), an event of type <code class="idl"><a data-link-type="idl
 handler.</p>
      <p>For all <code class="idl"><a data-link-type="idl" href="#AudioScheduledSourceNode" id="ref-for-AudioScheduledSourceNode⑧">AudioScheduledSourceNode</a></code>s, the <code>onended</code> event is dispatched when the stop time
 determined by <code class="idl"><a data-link-type="idl" href="#dom-audioscheduledsourcenode-stop" id="ref-for-dom-audioscheduledsourcenode-stop②">stop()</a></code> is reached.
-For an <code class="idl"><a data-link-type="idl" href="#audiobuffersourcenode" id="ref-for-audiobuffersourcenode⑦">AudioBufferSourceNode</a></code>, the event is
+For an <code class="idl"><a data-link-type="idl" href="#AudioBufferSourceNode" id="ref-for-AudioBufferSourceNode⑦">AudioBufferSourceNode</a></code>, the event is
 also dispatched because the <code class="idl"><a data-link-type="idl" href="#dom-audiobuffersourcenode-start-when-offset-duration-duration" id="ref-for-dom-audiobuffersourcenode-start-when-offset-duration-duration">duration</a></code> has been
 reached or if the entire <code class="idl"><a data-link-type="idl" href="#dom-audiobuffersourcenode-buffer" id="ref-for-dom-audiobuffersourcenode-buffer②">buffer</a></code> has been
 played.</p>
@@ -6218,8 +6218,8 @@ constraints described below.</p>
 values in the message.</p>
       </ol>
      </div>
-     <div class="algorithm" data-algorithm="run a control message to stop the AudioBufferSourceNode"> If the node is an <code class="idl"><a data-link-type="idl" href="#audiobuffersourcenode" id="ref-for-audiobuffersourcenode⑧">AudioBufferSourceNode</a></code>,
-	running a <a data-link-type="dfn" href="#control-message" id="ref-for-control-message⑧">control message</a> to stop the <code class="idl"><a data-link-type="idl" href="#audiobuffersourcenode" id="ref-for-audiobuffersourcenode⑨">AudioBufferSourceNode</a></code> means invoking the <code>handleStop()</code> function in the <a href="#playback-AudioBufferSourceNode">playback algorithm</a>. </div>
+     <div class="algorithm" data-algorithm="run a control message to stop the AudioBufferSourceNode"> If the node is an <code class="idl"><a data-link-type="idl" href="#AudioBufferSourceNode" id="ref-for-AudioBufferSourceNode⑧">AudioBufferSourceNode</a></code>,
+	running a <a data-link-type="dfn" href="#control-message" id="ref-for-control-message⑧">control message</a> to stop the <code class="idl"><a data-link-type="idl" href="#AudioBufferSourceNode" id="ref-for-AudioBufferSourceNode⑨">AudioBufferSourceNode</a></code> means invoking the <code>handleStop()</code> function in the <a href="#playback-AudioBufferSourceNode">playback algorithm</a>. </div>
      <table class="argumentdef data">
       <caption>Arguments for the <a data-link-type="idl" href="#dom-audioscheduledsourcenode-stop" id="ref-for-dom-audioscheduledsourcenode-stop③">AudioScheduledSourceNode.stop(when)</a> method.</caption>
       <thead>
@@ -6779,7 +6779,35 @@ $$
 	represented by the value 0 and <code><code class="idl"><a data-link-type="idl" href="#dom-analysernode-maxdecibels" id="ref-for-dom-analysernode-maxdecibels⑤">maxDecibels</a></code></code> is
 	represented by the value 255.</p>
    </div>
-   <h3 class="heading settled dfn-paneled idl-code" data-dfn-type="interface" data-export data-level="1.9" data-lt="AudioBuffer" id="AudioBuffer①"><span class="secno">1.9. </span><span class="content"> The <code class="idl"><a data-link-type="idl" href="#audiobuffersourcenode" id="ref-for-audiobuffersourcenode①⓪">AudioBufferSourceNode</a></code> Interface</span><a class="self-link" href="#AudioBuffer①" id="ref-for-AudioBuffer①①⓪"></a></h3>
+   <h3 class="heading settled dfn-paneled idl-code" data-dfn-type="interface" data-export data-level="1.9" data-lt="AudioBufferSourceNode" id="AudioBufferSourceNode"><span class="secno">1.9. </span><span class="content"> The <code class="idl"><a data-link-type="idl" href="#AudioBufferSourceNode" id="ref-for-AudioBufferSourceNode①⓪">AudioBufferSourceNode</a></code> Interface</span><a class="self-link" href="#AudioBufferSourceNode" id="ref-for-AudioBufferSourceNode③③"></a></h3>
+   <div class="mdn-anno wrapped after">
+    <button class="mdn-anno-btn"><span>MDN</span></button>
+    <div class="feature">
+     <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/AudioBufferSourceNode/AudioBufferSourceNode" title="The AudioBufferSourceNode() constructor creates a new AudioBufferSourceNode object instance.">AudioBufferSourceNode/AudioBufferSourceNode</a></p>
+     <div class="support">
+      <span class="firefox yes"><span>Firefox</span><span>53+</span></span><span class="safari no"><span>Safari</span><span>None</span></span><span class="chrome yes"><span>Chrome</span><span>55+</span></span>
+      <hr>
+      <span class="opera yes"><span>Opera</span><span>42+</span></span><span class="edge_blink yes"><span>Edge</span><span>79+</span></span>
+      <hr>
+      <span class="edge no"><span>Edge (Legacy)</span><span>None</span></span><span class="ie no"><span>IE</span><span>None</span></span>
+      <hr>
+      <span class="firefox_android yes"><span>Firefox for Android</span><span>53+</span></span><span class="safari_ios no"><span>iOS Safari</span><span>None</span></span><span class="chrome_android yes"><span>Chrome for Android</span><span>55+</span></span><span class="webview_android yes"><span>Android WebView</span><span>55+</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>6.0+</span></span><span class="opera_android yes"><span>Opera Mobile</span><span>42+</span></span>
+     </div>
+    </div>
+    <div class="feature">
+     <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/AudioBufferSourceNode" title="The AudioBufferSourceNode interface is an AudioScheduledSourceNode which represents an audio source consisting of in-memory audio data, stored in an AudioBuffer. It&apos;s especially useful for playing back audio which has particularly stringent timing accuracy requirements, such as for sounds that must match a specific rhythm and can be kept in memory rather than being played from disk or the network.">AudioBufferSourceNode</a></p>
+     <p class="all-engines-text">In all current engines.</p>
+     <div class="support">
+      <span class="firefox yes"><span>Firefox</span><span>25+</span></span><span class="safari yes"><span>Safari</span><span>6+</span></span><span class="chrome yes"><span>Chrome</span><span>14+</span></span>
+      <hr>
+      <span class="opera yes"><span>Opera</span><span>15+</span></span><span class="edge_blink yes"><span>Edge</span><span>79+</span></span>
+      <hr>
+      <span class="edge yes"><span>Edge (Legacy)</span><span>12+</span></span><span class="ie no"><span>IE</span><span>None</span></span>
+      <hr>
+      <span class="firefox_android yes"><span>Firefox for Android</span><span>25+</span></span><span class="safari_ios yes"><span>iOS Safari</span><span>6+</span></span><span class="chrome_android yes"><span>Chrome for Android</span><span>18+</span></span><span class="webview_android yes"><span>Android WebView</span><span>37+</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>1.0+</span></span><span class="opera_android yes"><span>Opera Mobile</span><span>14+</span></span>
+     </div>
+    </div>
+   </div>
    <p>This interface represents an audio source from an in-memory audio
 asset in an <code class="idl"><a data-link-type="idl" href="#AudioBuffer" id="ref-for-AudioBuffer⑤②">AudioBuffer</a></code>. It is useful for playing audio
 assets which require a high degree of scheduling flexibility and
@@ -6829,7 +6857,7 @@ details in the <code class="idl"><a data-link-type="idl" href="#dom-audioschedul
 AudioBuffer assigned to the <code class="idl"><a data-link-type="idl" href="#dom-audiobuffersourcenode-buffer" id="ref-for-dom-audiobuffersourcenode-buffer③">buffer</a></code> attribute,
 or is one channel of silence if <code class="idl"><a data-link-type="idl" href="#dom-audiobuffersourcenode-buffer" id="ref-for-dom-audiobuffersourcenode-buffer④">buffer</a></code> is <code>null</code>.</p>
    <p>In addition, if the buffer has more than one channel,
-then the <code class="idl"><a data-link-type="idl" href="#audiobuffersourcenode" id="ref-for-audiobuffersourcenode①①">AudioBufferSourceNode</a></code> output must change to a single channel
+then the <code class="idl"><a data-link-type="idl" href="#AudioBufferSourceNode" id="ref-for-AudioBufferSourceNode①①">AudioBufferSourceNode</a></code> output must change to a single channel
 of silence at the beginning of a render quantum after the time at which any one
 of the following conditions holds:</p>
    <ul>
@@ -6840,7 +6868,7 @@ of the following conditions holds:</p>
     <li data-md>
      <p>the <code class="idl"><a data-link-type="idl" href="#dom-audioscheduledsourcenode-stop-when-when" id="ref-for-dom-audioscheduledsourcenode-stop-when-when②">stop</a></code> time has been reached.</p>
    </ul>
-   <p>A <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="playhead-position">playhead position</dfn> for an <code class="idl"><a data-link-type="idl" href="#audiobuffersourcenode" id="ref-for-audiobuffersourcenode①②">AudioBufferSourceNode</a></code> is
+   <p>A <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="playhead-position">playhead position</dfn> for an <code class="idl"><a data-link-type="idl" href="#AudioBufferSourceNode" id="ref-for-AudioBufferSourceNode①②">AudioBufferSourceNode</a></code> is
 defined as any quantity representing a time offset in seconds,
 relative to the time coordinate of the first sample frame in the
 buffer. Such values are to be considered independently from the
@@ -6853,10 +6881,10 @@ between 0 and the duration of the buffer.</p>
 </pre>
    <p>The <a data-link-type="dfn" href="#nominal-range" id="ref-for-nominal-range③">nominal range</a> for this <a data-link-type="dfn" href="#compound-parameter" id="ref-for-compound-parameter④">compound parameter</a> is
 \((-\infty, \infty)\).</p>
-   <p><code class="idl"><a data-link-type="idl" href="#audiobuffersourcenode" id="ref-for-audiobuffersourcenode①③">AudioBufferSourceNode</a></code>s are created with an internal boolean
+   <p><code class="idl"><a data-link-type="idl" href="#AudioBufferSourceNode" id="ref-for-AudioBufferSourceNode①③">AudioBufferSourceNode</a></code>s are created with an internal boolean
 slot <dfn class="dfn-paneled idl-code" data-dfn-for="AudioBufferSourceNode" data-dfn-type="attribute" data-export id="dom-audiobuffersourcenode-buffer-set-slot"><code>[[buffer set]]</code></dfn>, initially set to false.</p>
 <pre class="idl highlight def">[<a class="idl-code" data-link-type="extended-attribute" href="https://heycam.github.io/webidl/#Exposed" id="ref-for-Exposed⑨"><c- g>Exposed</c-></a>=<c- n>Window</c->]
-<c- b>interface</c-> <dfn class="dfn-paneled idl-code" data-dfn-type="interface" data-export id="audiobuffersourcenode"><code><c- g>AudioBufferSourceNode</c-></code></dfn> : <a data-link-type="idl-name" href="#AudioScheduledSourceNode" id="ref-for-AudioScheduledSourceNode①⑤"><c- n>AudioScheduledSourceNode</c-></a> {
+<c- b>interface</c-> <a class="idl-code" data-link-type="interface" href="#AudioBufferSourceNode" id="ref-for-AudioBufferSourceNode①④"><c- g>AudioBufferSourceNode</c-></a> : <a data-link-type="idl-name" href="#AudioScheduledSourceNode" id="ref-for-AudioScheduledSourceNode①⑤"><c- n>AudioScheduledSourceNode</c-></a> {
   <dfn class="dfn-paneled idl-code" data-dfn-for="AudioBufferSourceNode" data-dfn-type="constructor" data-export data-lt="AudioBufferSourceNode(context, options)|constructor(context, options)|AudioBufferSourceNode(context)|constructor(context)" id="dom-audiobuffersourcenode-audiobuffersourcenode"><code><c- g>constructor</c-></code></dfn> (<a data-link-type="idl-name" href="#BaseAudioContext" id="ref-for-BaseAudioContext③⑥"><c- n>BaseAudioContext</c-></a> <dfn class="idl-code" data-dfn-for="AudioBufferSourceNode/AudioBufferSourceNode(context, options), AudioBufferSourceNode/constructor(context, options), AudioBufferSourceNode/AudioBufferSourceNode(context), AudioBufferSourceNode/constructor(context)" data-dfn-type="argument" data-export id="dom-audiobuffersourcenode-audiobuffersourcenode-context-options-context"><code><c- g>context</c-></code><a class="self-link" href="#dom-audiobuffersourcenode-audiobuffersourcenode-context-options-context"></a></dfn>,
                <c- b>optional</c-> <a data-link-type="idl-name" href="#dictdef-audiobuffersourceoptions" id="ref-for-dictdef-audiobuffersourceoptions"><c- n>AudioBufferSourceOptions</c-></a> <dfn class="idl-code" data-dfn-for="AudioBufferSourceNode/AudioBufferSourceNode(context, options), AudioBufferSourceNode/constructor(context, options), AudioBufferSourceNode/AudioBufferSourceNode(context), AudioBufferSourceNode/constructor(context)" data-dfn-type="argument" data-export id="dom-audiobuffersourcenode-audiobuffersourcenode-context-options-options"><code><c- g>options</c-></code><a class="self-link" href="#dom-audiobuffersourcenode-audiobuffersourcenode-context-options-options"></a></dfn> = {});
   <c- b>attribute</c-> <a data-link-type="idl-name" href="#AudioBuffer" id="ref-for-AudioBuffer⑤③"><c- n>AudioBuffer</c-></a>? <a class="idl-code" data-link-type="attribute" data-type="AudioBuffer?" href="#dom-audiobuffersourcenode-buffer" id="ref-for-dom-audiobuffersourcenode-buffer⑥"><c- g>buffer</c-></a>;
@@ -6891,13 +6919,13 @@ an option object <var>option</var>, the user agent MUST <a href="#audionode-cons
         <td> BaseAudioContext 
         <td> <span class="no">✘</span>
         <td> <span class="no">✘</span>
-        <td>The <code class="idl"><a data-link-type="idl" href="#BaseAudioContext" id="ref-for-BaseAudioContext③⑧">BaseAudioContext</a></code> this new <code class="idl"><a data-link-type="idl" href="#audiobuffersourcenode" id="ref-for-audiobuffersourcenode①④">AudioBufferSourceNode</a></code> will be <a href="#associated" id="ref-for-associated②">associated</a> with. 
+        <td>The <code class="idl"><a data-link-type="idl" href="#BaseAudioContext" id="ref-for-BaseAudioContext③⑧">BaseAudioContext</a></code> this new <code class="idl"><a data-link-type="idl" href="#AudioBufferSourceNode" id="ref-for-AudioBufferSourceNode①⑤">AudioBufferSourceNode</a></code> will be <a href="#associated" id="ref-for-associated②">associated</a> with. 
        <tr>
         <td><dfn class="idl-code" data-dfn-for="AudioBufferSourceNode/constructor()" data-dfn-type="argument" data-export id="dom-audiobuffersourcenode-constructor-options"><code>options</code><a class="self-link" href="#dom-audiobuffersourcenode-constructor-options"></a></dfn> 
         <td> AudioBufferSourceOptions 
         <td> <span class="no">✘</span>
         <td> <span class="yes">✔</span>
-        <td>Optional initial parameter value for this <code class="idl"><a data-link-type="idl" href="#audiobuffersourcenode" id="ref-for-audiobuffersourcenode①⑤">AudioBufferSourceNode</a></code>.
+        <td>Optional initial parameter value for this <code class="idl"><a data-link-type="idl" href="#AudioBufferSourceNode" id="ref-for-AudioBufferSourceNode①⑥">AudioBufferSourceNode</a></code>.
      </table>
    </dl>
    <h4 class="heading settled" data-level="1.9.2" id="AudioBufferSourceNode-attributes"><span class="secno">1.9.2. </span><span class="content"> Attributes</span><a class="self-link" href="#AudioBufferSourceNode-attributes"></a></h4>
@@ -7128,7 +7156,7 @@ the end of the buffer.</p>
        <span class="synchronous">When this method is called, execute these steps:</span> 
       <ol>
        <li data-md>
-        <p><span class="synchronous">If this <code class="idl"><a data-link-type="idl" href="#audiobuffersourcenode" id="ref-for-audiobuffersourcenode①⑥">AudioBufferSourceNode</a></code> internal
+        <p><span class="synchronous">If this <code class="idl"><a data-link-type="idl" href="#AudioBufferSourceNode" id="ref-for-AudioBufferSourceNode①⑦">AudioBufferSourceNode</a></code> internal
 slot <code class="idl"><a data-link-type="idl" href="#dom-audioscheduledsourcenode-source-started-slot" id="ref-for-dom-audioscheduledsourcenode-source-started-slot③">[[source started]]</a></code> is <code>true</code>, an <code class="idl"><a data-link-type="idl" href="https://heycam.github.io/webidl/#invalidstateerror" id="ref-for-invalidstateerror②⑧">InvalidStateError</a></code> exception MUST be thrown.</span></p>
        <li data-md>
         <p>Check for any errors that must be thrown due to parameter
@@ -7137,9 +7165,9 @@ exception is thrown during this step,
 abort those steps.</p>
        <li data-md>
         <p>Set the internal slot <code class="idl"><a data-link-type="idl" href="#dom-audioscheduledsourcenode-source-started-slot" id="ref-for-dom-audioscheduledsourcenode-source-started-slot④">[[source started]]</a></code> on
-this <code class="idl"><a data-link-type="idl" href="#audiobuffersourcenode" id="ref-for-audiobuffersourcenode①⑦">AudioBufferSourceNode</a></code> to <code>true</code>.</p>
+this <code class="idl"><a data-link-type="idl" href="#AudioBufferSourceNode" id="ref-for-AudioBufferSourceNode①⑧">AudioBufferSourceNode</a></code> to <code>true</code>.</p>
        <li data-md>
-        <p><a data-link-type="dfn" href="#queuing" id="ref-for-queuing⑥">Queue a control message</a> to start the <code class="idl"><a data-link-type="idl" href="#audiobuffersourcenode" id="ref-for-audiobuffersourcenode①⑧">AudioBufferSourceNode</a></code>, including the parameter values
+        <p><a data-link-type="dfn" href="#queuing" id="ref-for-queuing⑥">Queue a control message</a> to start the <code class="idl"><a data-link-type="idl" href="#AudioBufferSourceNode" id="ref-for-AudioBufferSourceNode①⑨">AudioBufferSourceNode</a></code>, including the parameter values
 in the message.</p>
        <li data-md>
         <p><a data-link-type="dfn" href="#acquire-the-content" id="ref-for-acquire-the-content②">Acquire the contents</a> of the <code class="idl"><a data-link-type="idl" href="#dom-audiobuffersourcenode-buffer" id="ref-for-dom-audiobuffersourcenode-buffer①①">buffer</a></code> if the <code class="idl"><a data-link-type="idl" href="#dom-audiobuffersourcenode-buffer" id="ref-for-dom-audiobuffersourcenode-buffer①②">buffer</a></code> has been set.</p>
@@ -7157,7 +7185,7 @@ all the following conditions are met:</p>
         <p class="note" role="note"><span>NOTE:</span> This allows <code class="idl"><a data-link-type="idl" href="#dom-audiobuffersourcenode-start" id="ref-for-dom-audiobuffersourcenode-start④">start()</a></code> to start an <code class="idl"><a data-link-type="idl" href="#AudioContext" id="ref-for-AudioContext⑨⑤">AudioContext</a></code> that would otherwise not be <a data-link-type="dfn" href="#allowed-to-start" id="ref-for-allowed-to-start⑤">allowed to start</a>.</p>
       </ol>
      </div>
-     <div class="algorithm" data-algorithm="run a control message to start the AudioBufferSourceNode"> Running a <a data-link-type="dfn" href="#control-message" id="ref-for-control-message①⓪">control message</a> to start the <code class="idl"><a data-link-type="idl" href="#audiobuffersourcenode" id="ref-for-audiobuffersourcenode①⑨">AudioBufferSourceNode</a></code> means invoking the <code>handleStart()</code> function in the <a href="#playback-AudioBufferSourceNode">playback algorithm</a> which follows. </div>
+     <div class="algorithm" data-algorithm="run a control message to start the AudioBufferSourceNode"> Running a <a data-link-type="dfn" href="#control-message" id="ref-for-control-message①⓪">control message</a> to start the <code class="idl"><a data-link-type="idl" href="#AudioBufferSourceNode" id="ref-for-AudioBufferSourceNode②⓪">AudioBufferSourceNode</a></code> means invoking the <code>handleStart()</code> function in the <a href="#playback-AudioBufferSourceNode">playback algorithm</a> which follows. </div>
      <table class="argumentdef data">
       <caption>Arguments for the <a data-link-type="idl" href="#dom-audiobuffersourcenode-start" id="ref-for-dom-audiobuffersourcenode-start⑤">AudioBufferSourceNode.start(when, offset, duration)</a> method.</caption>
       <thead>
@@ -7190,7 +7218,7 @@ all the following conditions are met:</p>
      <div> <em>Return type:</em> <code class="idl"><a data-link-type="idl" href="https://heycam.github.io/webidl/#idl-undefined" id="ref-for-idl-undefined④⑥">undefined</a></code> </div>
    </dl>
    <h4 class="heading settled dfn-paneled idl-code" data-dfn-type="dictionary" data-export data-level="1.9.4" data-lt="AudioBufferSourceOptions" id="dictdef-audiobuffersourceoptions"><span class="secno">1.9.4. </span><span class="content"> <code class="idl"><a data-link-type="idl" href="#dictdef-audiobuffersourceoptions" id="ref-for-dictdef-audiobuffersourceoptions①">AudioBufferSourceOptions</a></code></span><a class="self-link" href="#dictdef-audiobuffersourceoptions" id="ref-for-dictdef-audiobuffersourceoptions④"></a></h4>
-   <p>This specifies options for constructing a <code class="idl"><a data-link-type="idl" href="#audiobuffersourcenode" id="ref-for-audiobuffersourcenode②⓪">AudioBufferSourceNode</a></code>. All members are
+   <p>This specifies options for constructing a <code class="idl"><a data-link-type="idl" href="#AudioBufferSourceNode" id="ref-for-AudioBufferSourceNode②①">AudioBufferSourceNode</a></code>. All members are
 optional; if not specified, the normal default is used in
 constructing the node.</p>
 <pre class="idl highlight def"><c- b>dictionary</c-> <a class="idl-code" data-link-type="dictionary" href="#dictdef-audiobuffersourceoptions" id="ref-for-dictdef-audiobuffersourceoptions②"><c- g>AudioBufferSourceOptions</c-></a> {
@@ -7207,7 +7235,7 @@ constructing the node.</p>
     <dt data-md><dfn class="dfn-paneled idl-code" data-dfn-for="AudioBufferSourceOptions" data-dfn-type="dict-member" data-export id="dom-audiobuffersourceoptions-buffer"><code>buffer</code></dfn>, <span> of type <a data-link-type="idl-name" href="#AudioBuffer" id="ref-for-AudioBuffer⑤⑧">AudioBuffer</a>, nullable</span>
     <dd data-md>
      <p>The audio asset to be played. This is equivalent to assigning <code class="idl"><a data-link-type="idl" href="#dom-audiobuffersourceoptions-buffer" id="ref-for-dom-audiobuffersourceoptions-buffer①">buffer</a></code> to the <code class="idl"><a data-link-type="idl" href="#dom-audiobuffersourcenode-buffer" id="ref-for-dom-audiobuffersourcenode-buffer①④">buffer</a></code> attribute of
-the <code class="idl"><a data-link-type="idl" href="#audiobuffersourcenode" id="ref-for-audiobuffersourcenode②①">AudioBufferSourceNode</a></code>.</p>
+the <code class="idl"><a data-link-type="idl" href="#AudioBufferSourceNode" id="ref-for-AudioBufferSourceNode②②">AudioBufferSourceNode</a></code>.</p>
     <dt data-md><dfn class="dfn-paneled idl-code" data-dfn-for="AudioBufferSourceOptions" data-dfn-type="dict-member" data-export id="dom-audiobuffersourceoptions-detune"><code>detune</code></dfn>, <span> of type <a data-link-type="idl-name" href="https://heycam.github.io/webidl/#idl-float" id="ref-for-idl-float③⓪">float</a>, defaulting to <code>0</code></span>
     <dd data-md>
      <p>The initial value for the <code class="idl"><a data-link-type="idl" href="#dom-audiobuffersourcenode-detune" id="ref-for-dom-audiobuffersourcenode-detune⑤">detune</a></code> AudioParam.</p>
@@ -7284,7 +7312,7 @@ the following factors working in combination:</p>
 single <a data-link-type="dfn" href="#computedplaybackrate" id="ref-for-computedplaybackrate②">computedPlaybackRate</a> that can assume finite values
 which may be positive or negative.</p>
    </ul>
-   <p>The algorithm to be followed internally to generate output from an <code class="idl"><a data-link-type="idl" href="#audiobuffersourcenode" id="ref-for-audiobuffersourcenode②②">AudioBufferSourceNode</a></code> conforms to the following principles:</p>
+   <p>The algorithm to be followed internally to generate output from an <code class="idl"><a data-link-type="idl" href="#AudioBufferSourceNode" id="ref-for-AudioBufferSourceNode②③">AudioBufferSourceNode</a></code> conforms to the following principles:</p>
    <ul>
     <li data-md>
      <p>Resampling of the buffer may be performed arbitrarily by the UA
@@ -7324,7 +7352,7 @@ could employ other interpolation techniques.</p>
 loop that ends after the last sample frame in the buffer:</p>
    <figure>
      <img alt="AudioBufferSourceNode basic playback" height="485" src="images/absn-basic.png" width="556"> 
-    <figcaption> <code class="idl"><a data-link-type="idl" href="#audiobuffersourcenode" id="ref-for-audiobuffersourcenode②③">AudioBufferSourceNode</a></code> basic playback </figcaption>
+    <figcaption> <code class="idl"><a data-link-type="idl" href="#AudioBufferSourceNode" id="ref-for-AudioBufferSourceNode②④">AudioBufferSourceNode</a></code> basic playback </figcaption>
    </figure>
    <p>This figure illustrates <code>playbackRate</code> interpolation,
 showing half-speed playback of buffer contents in which every other
@@ -7333,7 +7361,7 @@ sample frame in the looped output, which is interpolated using the
 loop start point:</p>
    <figure>
      <img alt="AudioBufferSourceNode playbackRate interpolation" height="472" src="images/absn-slow-loop.png" width="543"> 
-    <figcaption> <code class="idl"><a data-link-type="idl" href="#audiobuffersourcenode" id="ref-for-audiobuffersourcenode②④">AudioBufferSourceNode</a></code> playbackRate interpolation </figcaption>
+    <figcaption> <code class="idl"><a data-link-type="idl" href="#AudioBufferSourceNode" id="ref-for-AudioBufferSourceNode②⑤">AudioBufferSourceNode</a></code> playbackRate interpolation </figcaption>
    </figure>
    <p>This figure illustrates sample rate interpolation, showing playback
 of a buffer whose sample rate is 50% of the context sample rate,
@@ -7343,14 +7371,14 @@ resulting output is the same as the preceding example, but for
 different reasons.</p>
    <figure>
      <img alt="AudioBufferSourceNode sample rate interpolation" height="459" src="images/absn-half-sample-rate.png" width="543"> 
-    <figcaption> <code class="idl"><a data-link-type="idl" href="#audiobuffersourcenode" id="ref-for-audiobuffersourcenode②⑤">AudioBufferSourceNode</a></code> sample rate interpolation. </figcaption>
+    <figcaption> <code class="idl"><a data-link-type="idl" href="#AudioBufferSourceNode" id="ref-for-AudioBufferSourceNode②⑥">AudioBufferSourceNode</a></code> sample rate interpolation. </figcaption>
    </figure>
    <p>This figure illustrates subsample offset playback, in which the
 offset within the buffer begins at exactly half a sample frame.
 Consequently, every output frame is interpolated:</p>
    <figure>
      <img alt="AudioBufferSourceNode subsample offset playback" height="448" src="images/absn-offset.png" width="543"> 
-    <figcaption> <code class="idl"><a data-link-type="idl" href="#audiobuffersourcenode" id="ref-for-audiobuffersourcenode②⑥">AudioBufferSourceNode</a></code> subsample offset playback </figcaption>
+    <figcaption> <code class="idl"><a data-link-type="idl" href="#AudioBufferSourceNode" id="ref-for-AudioBufferSourceNode②⑦">AudioBufferSourceNode</a></code> subsample offset playback </figcaption>
    </figure>
    <p>This figure illustrates subsample loop playback, showing how
 fractional frame offsets in the loop endpoints map to interpolated
@@ -7358,7 +7386,7 @@ data points in the buffer that respect these offsets as if they
 were references to exact sample frames:</p>
    <figure>
      <img alt="AudioBufferSourceNode subsample loop playback" height="480" src="images/absn-subsample-loop.png" width="543"> 
-    <figcaption> <code class="idl"><a data-link-type="idl" href="#audiobuffersourcenode" id="ref-for-audiobuffersourcenode②⑦">AudioBufferSourceNode</a></code> subsample loop playback </figcaption>
+    <figcaption> <code class="idl"><a data-link-type="idl" href="#AudioBufferSourceNode" id="ref-for-AudioBufferSourceNode②⑧">AudioBufferSourceNode</a></code> subsample loop playback </figcaption>
    </figure>
    <h3 class="heading settled dfn-paneled idl-code" data-dfn-type="interface" data-export data-level="1.10" data-lt="AudioDestinationNode" id="AudioDestinationNode"><span class="secno">1.10. </span><span class="content"> The <code class="idl"><a data-link-type="idl" href="#AudioDestinationNode" id="ref-for-AudioDestinationNode①⑤">AudioDestinationNode</a></code> Interface</span><a class="self-link" href="#AudioDestinationNode" id="ref-for-AudioDestinationNode②⓪"></a></h3>
    <div class="mdn-anno wrapped after">
@@ -14156,7 +14184,7 @@ queue</dfn> that is a list of <dfn class="dfn-paneled" data-dfn-type="dfn" data-
 messages</dfn> that are operations running on the <a data-link-type="dfn" href="#rendering-thread" id="ref-for-rendering-thread①⑤">rendering
 thread</a>.</p>
    <p><dfn class="dfn-paneled" data-dfn-type="dfn" data-lt="queue a control message" data-noexport id="queuing">Queuing a control message</dfn> means adding the message to the end of the <a data-link-type="dfn" href="#control-message-queue" id="ref-for-control-message-queue">control message queue</a> of an <code class="idl"><a data-link-type="idl" href="#BaseAudioContext" id="ref-for-BaseAudioContext①⓪⓪">BaseAudioContext</a></code>.</p>
-   <p class="note" role="note"><span>Note:</span> For example, successfuly calling <code>start()</code> on an <code class="idl"><a data-link-type="idl" href="#audiobuffersourcenode" id="ref-for-audiobuffersourcenode②⑧">AudioBufferSourceNode</a></code> <code>source</code> adds a <a data-link-type="dfn" href="#control-message" id="ref-for-control-message①②">control
+   <p class="note" role="note"><span>Note:</span> For example, successfuly calling <code>start()</code> on an <code class="idl"><a data-link-type="idl" href="#AudioBufferSourceNode" id="ref-for-AudioBufferSourceNode②⑨">AudioBufferSourceNode</a></code> <code>source</code> adds a <a data-link-type="dfn" href="#control-message" id="ref-for-control-message①②">control
 message</a> to the <a href="#control-message-queue" id="ref-for-control-message-queue①①">control message
 queue</a> of the associated <code class="idl"><a data-link-type="idl" href="#BaseAudioContext" id="ref-for-BaseAudioContext①⓪①">BaseAudioContext</a></code>.</p>
    <p><a data-link-type="dfn" href="#control-message" id="ref-for-control-message①③">Control messages</a> in a <a data-link-type="dfn" href="#control-message-queue" id="ref-for-control-message-queue①">control message queue</a> are ordered
@@ -14519,10 +14547,10 @@ constantly changing as new notes are added into the routing graph,
 and old ones are released.</p>
    <p>The audio system automatically deals with tearing-down the part of
 the routing graph for individual "note" events. A "note" is
-represented by an <code class="idl"><a data-link-type="idl" href="#audiobuffersourcenode" id="ref-for-audiobuffersourcenode②⑨">AudioBufferSourceNode</a></code>, which
+represented by an <code class="idl"><a data-link-type="idl" href="#AudioBufferSourceNode" id="ref-for-AudioBufferSourceNode③⓪">AudioBufferSourceNode</a></code>, which
 can be directly connected to other processing nodes. When the note
 has finished playing, the context will automatically release the
-reference to the <code class="idl"><a data-link-type="idl" href="#audiobuffersourcenode" id="ref-for-audiobuffersourcenode③⓪">AudioBufferSourceNode</a></code>, which in
+reference to the <code class="idl"><a data-link-type="idl" href="#AudioBufferSourceNode" id="ref-for-AudioBufferSourceNode③①">AudioBufferSourceNode</a></code>, which in
 turn will release references to any nodes it is connected to, and so
 on. The nodes will automatically get disconnected from the graph and
 will be deleted when they have no more references. Nodes in the graph
@@ -15108,7 +15136,7 @@ the oversampling technique, add delays to the signal path.</p>
 can usually be implemented without copying channel data. In
 particular, the last step SHOULD be performed lazily at the next <code class="idl"><a data-link-type="idl" href="#dom-audiobuffer-getchanneldata" id="ref-for-dom-audiobuffer-getchanneldata⑤">getChannelData()</a></code> call.
 That means a sequence of consecutive <a href="#acquire-the-content" id="ref-for-acquire-the-content①②">acquire the contents</a> operations with no
-intervening <code class="idl"><a data-link-type="idl" href="#dom-audiobuffer-getchanneldata" id="ref-for-dom-audiobuffer-getchanneldata⑥">getChannelData()</a></code> (e.g. multiple <code class="idl"><a data-link-type="idl" href="#audiobuffersourcenode" id="ref-for-audiobuffersourcenode③①">AudioBufferSourceNode</a></code>s playing the same <code class="idl"><a data-link-type="idl" href="#AudioBuffer" id="ref-for-AudioBuffer⑦⑤">AudioBuffer</a></code>) can be implemented with no
+intervening <code class="idl"><a data-link-type="idl" href="#dom-audiobuffer-getchanneldata" id="ref-for-dom-audiobuffer-getchanneldata⑥">getChannelData()</a></code> (e.g. multiple <code class="idl"><a data-link-type="idl" href="#AudioBufferSourceNode" id="ref-for-AudioBufferSourceNode③②">AudioBufferSourceNode</a></code>s playing the same <code class="idl"><a data-link-type="idl" href="#AudioBuffer" id="ref-for-AudioBuffer⑦⑤">AudioBuffer</a></code>) can be implemented with no
 allocations or copying.</p>
    <p>Implementations can perform an additional optimization: if <code class="idl"><a data-link-type="idl" href="#dom-audiobuffer-getchanneldata" id="ref-for-dom-audiobuffer-getchanneldata⑦">getChannelData()</a></code> is called on an <code class="idl"><a data-link-type="idl" href="#AudioBuffer" id="ref-for-AudioBuffer⑦⑥">AudioBuffer</a></code>, fresh <code class="idl"><a data-link-type="idl" href="https://heycam.github.io/webidl/#idl-ArrayBuffer" id="ref-for-idl-ArrayBuffer⑧">ArrayBuffer</a></code>s have not yet been
 allocated, but all invokers of previous <a href="#acquire-the-content" id="ref-for-acquire-the-content①③">acquire the content</a> operations on an <code class="idl"><a data-link-type="idl" href="#AudioBuffer" id="ref-for-AudioBuffer⑦⑦">AudioBuffer</a></code> have stopped using the <code class="idl"><a data-link-type="idl" href="#AudioBuffer" id="ref-for-AudioBuffer⑦⑧">AudioBuffer</a></code>'s data,
@@ -15829,15 +15857,10 @@ Zergaoui, Mohamed (INNOVIMAX)</p>
      <li><a href="#dom-dynamicscompressornode-attack">attribute for DynamicsCompressorNode</a><span>, in §1.19.2</span>
      <li><a href="#dom-dynamicscompressoroptions-attack">dict-member for DynamicsCompressorOptions</a><span>, in §1.19.3.1</span>
     </ul>
-   <li>
-    AudioBuffer
-    <ul>
-     <li><a href="#AudioBuffer">(interface)</a><span>, in §1.3.5.2.1</span>
-     <li><a href="#AudioBuffer①">(interface)</a><span>, in §1.8.6</span>
-    </ul>
+   <li><a href="#AudioBuffer">AudioBuffer</a><span>, in §1.3.5.2.1</span>
    <li><a href="#dom-audiobuffer-audiobuffer">AudioBuffer(options)</a><span>, in §1.4.1</span>
    <li><a href="#dictdef-audiobufferoptions">AudioBufferOptions</a><span>, in §1.4.4</span>
-   <li><a href="#audiobuffersourcenode">AudioBufferSourceNode</a><span>, in §1.9</span>
+   <li><a href="#AudioBufferSourceNode">AudioBufferSourceNode</a><span>, in §1.8.6</span>
    <li><a href="#dom-audiobuffersourcenode-audiobuffersourcenode">AudioBufferSourceNode(context)</a><span>, in §1.9</span>
    <li>
     AudioBufferSourceNode(context, options)
@@ -18205,7 +18228,7 @@ Attributes</a>
   <a data-link-type="idl-name" href="#AudioBuffer"><c- n>AudioBuffer</c-></a> <a class="idl-code" data-link-type="method" href="#dom-baseaudiocontext-createbuffer"><c- g>createBuffer</c-></a> (<a class="idl-code" data-link-type="interface" href="https://heycam.github.io/webidl/#idl-unsigned-long"><c- b>unsigned</c-> <c- b>long</c-></a> <a href="#dom-baseaudiocontext-createbuffer-numberofchannels-length-samplerate-numberofchannels"><code><c- g>numberOfChannels</c-></code></a>,
                             <a class="idl-code" data-link-type="interface" href="https://heycam.github.io/webidl/#idl-unsigned-long"><c- b>unsigned</c-> <c- b>long</c-></a> <a href="#dom-baseaudiocontext-createbuffer-numberofchannels-length-samplerate-length"><code><c- g>length</c-></code></a>,
                             <a class="idl-code" data-link-type="interface" href="https://heycam.github.io/webidl/#idl-float"><c- b>float</c-></a> <a href="#dom-baseaudiocontext-createbuffer-numberofchannels-length-samplerate-samplerate"><code><c- g>sampleRate</c-></code></a>);
-  <a data-link-type="idl-name" href="#audiobuffersourcenode"><c- n>AudioBufferSourceNode</c-></a> <a class="idl-code" data-link-type="method" href="#dom-baseaudiocontext-createbuffersource"><c- g>createBufferSource</c-></a> ();
+  <a data-link-type="idl-name" href="#AudioBufferSourceNode"><c- n>AudioBufferSourceNode</c-></a> <a class="idl-code" data-link-type="method" href="#dom-baseaudiocontext-createbuffersource"><c- g>createBufferSource</c-></a> ();
   <a data-link-type="idl-name" href="#ChannelMergerNode"><c- n>ChannelMergerNode</c-></a> <a class="idl-code" data-link-type="method" href="#dom-baseaudiocontext-createchannelmerger"><c- g>createChannelMerger</c-></a> (<c- b>optional</c-> <a class="idl-code" data-link-type="interface" href="https://heycam.github.io/webidl/#idl-unsigned-long"><c- b>unsigned</c-> <c- b>long</c-></a> <a class="idl-code" data-link-type="argument" href="#dom-baseaudiocontext-createchannelmerger-numberofinputs-numberofinputs"><c- g>numberOfInputs</c-></a> = 6);
   <a data-link-type="idl-name" href="#ChannelSplitterNode"><c- n>ChannelSplitterNode</c-></a> <a class="idl-code" data-link-type="method" href="#dom-baseaudiocontext-createchannelsplitter"><c- g>createChannelSplitter</c-></a> (
     <c- b>optional</c-> <a class="idl-code" data-link-type="interface" href="https://heycam.github.io/webidl/#idl-unsigned-long"><c- b>unsigned</c-> <c- b>long</c-></a> <a class="idl-code" data-link-type="argument" href="#dom-baseaudiocontext-createchannelsplitter-numberofoutputs-numberofoutputs"><c- g>numberOfOutputs</c-></a> = 6);
@@ -18407,7 +18430,7 @@ Attributes</a>
 };
 
 [<a class="idl-code" data-link-type="extended-attribute" href="https://heycam.github.io/webidl/#Exposed"><c- g>Exposed</c-></a>=<c- n>Window</c->]
-<c- b>interface</c-> <a href="#audiobuffersourcenode"><code><c- g>AudioBufferSourceNode</c-></code></a> : <a data-link-type="idl-name" href="#AudioScheduledSourceNode"><c- n>AudioScheduledSourceNode</c-></a> {
+<c- b>interface</c-> <a class="idl-code" data-link-type="interface" href="#AudioBufferSourceNode"><c- g>AudioBufferSourceNode</c-></a> : <a data-link-type="idl-name" href="#AudioScheduledSourceNode"><c- n>AudioScheduledSourceNode</c-></a> {
   <a href="#dom-audiobuffersourcenode-audiobuffersourcenode"><code><c- g>constructor</c-></code></a> (<a data-link-type="idl-name" href="#BaseAudioContext"><c- n>BaseAudioContext</c-></a> <a href="#dom-audiobuffersourcenode-audiobuffersourcenode-context-options-context"><code><c- g>context</c-></code></a>,
                <c- b>optional</c-> <a data-link-type="idl-name" href="#dictdef-audiobuffersourceoptions"><c- n>AudioBufferSourceOptions</c-></a> <a href="#dom-audiobuffersourcenode-audiobuffersourcenode-context-options-options"><code><c- g>options</c-></code></a> = {});
   <c- b>attribute</c-> <a data-link-type="idl-name" href="#AudioBuffer"><c- n>AudioBuffer</c-></a>? <a class="idl-code" data-link-type="attribute" data-type="AudioBuffer?" href="#dom-audiobuffersourcenode-buffer"><c- g>buffer</c-></a>;
@@ -22404,11 +22427,42 @@ FFT Windowing and Smoothing over Time</a>
 FFT Windowing and Smoothing over Time</a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="AudioBuffer①">
-   <b><a href="#AudioBuffer①">#AudioBuffer①</a></b><b>Referenced in:</b>
+  <aside class="dfn-panel" data-for="AudioBufferSourceNode">
+   <b><a href="#AudioBufferSourceNode">#AudioBufferSourceNode</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-AudioBuffer①">1.9. 
-The AudioBufferSourceNode Interface</a>
+    <li><a href="#ref-for-AudioBufferSourceNode"> API Overview</a>
+    <li><a href="#ref-for-AudioBufferSourceNode①">1.1. 
+The BaseAudioContext Interface</a>
+    <li><a href="#ref-for-AudioBufferSourceNode②">1.1.2. 
+Methods</a> <a href="#ref-for-AudioBufferSourceNode③">(2)</a>
+    <li><a href="#ref-for-AudioBufferSourceNode④">1.4.3. 
+Methods</a>
+    <li><a href="#ref-for-AudioBufferSourceNode⑤">1.6.1. 
+Attributes</a>
+    <li><a href="#ref-for-AudioBufferSourceNode⑥">1.7. 
+The AudioScheduledSourceNode Interface</a>
+    <li><a href="#ref-for-AudioBufferSourceNode⑦">1.7.1. 
+Attributes</a>
+    <li><a href="#ref-for-AudioBufferSourceNode⑧">1.7.2. 
+Methods</a> <a href="#ref-for-AudioBufferSourceNode⑨">(2)</a>
+    <li><a href="#ref-for-AudioBufferSourceNode①⓪">1.9. 
+The AudioBufferSourceNode Interface</a> <a href="#ref-for-AudioBufferSourceNode">(2)</a> <a href="#ref-for-AudioBufferSourceNode①①">(3)</a> <a href="#ref-for-AudioBufferSourceNode①②">(4)</a> <a href="#ref-for-AudioBufferSourceNode①③">(5)</a> <a href="#ref-for-AudioBufferSourceNode①④">(6)</a>
+    <li><a href="#ref-for-AudioBufferSourceNode①⑤">1.9.1. 
+Constructors</a> <a href="#ref-for-AudioBufferSourceNode①⑥">(2)</a>
+    <li><a href="#ref-for-AudioBufferSourceNode①⑦">1.9.3. 
+Methods</a> <a href="#ref-for-AudioBufferSourceNode①⑧">(2)</a> <a href="#ref-for-AudioBufferSourceNode①⑨">(3)</a> <a href="#ref-for-AudioBufferSourceNode②⓪">(4)</a>
+    <li><a href="#ref-for-AudioBufferSourceNode②①">1.9.4. 
+AudioBufferSourceOptions</a>
+    <li><a href="#ref-for-AudioBufferSourceNode②②">1.9.4.1. 
+Dictionary AudioBufferSourceOptions Members</a>
+    <li><a href="#ref-for-AudioBufferSourceNode②③">1.9.6. 
+Playback of AudioBuffer Contents</a> <a href="#ref-for-AudioBufferSourceNode②④">(2)</a> <a href="#ref-for-AudioBufferSourceNode②⑤">(3)</a> <a href="#ref-for-AudioBufferSourceNode②⑥">(4)</a> <a href="#ref-for-AudioBufferSourceNode②⑦">(5)</a> <a href="#ref-for-AudioBufferSourceNode②⑧">(6)</a>
+    <li><a href="#ref-for-AudioBufferSourceNode②⑨">2.2. 
+Control Thread and Rendering Thread</a>
+    <li><a href="#ref-for-AudioBufferSourceNode③⓪">3.1. 
+Background</a> <a href="#ref-for-AudioBufferSourceNode③①">(2)</a>
+    <li><a href="#ref-for-AudioBufferSourceNode③②">7.2. 
+Audio Buffer Copying</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="playhead-position">
@@ -22434,44 +22488,6 @@ Playback of AudioBuffer Contents</a>
    <ul>
     <li><a href="#ref-for-dom-audiobuffersourcenode-buffer-set-slot">1.9.2. 
 Attributes</a> <a href="#ref-for-dom-audiobuffersourcenode-buffer-set-slot①">(2)</a>
-   </ul>
-  </aside>
-  <aside class="dfn-panel" data-for="audiobuffersourcenode">
-   <b><a href="#audiobuffersourcenode">#audiobuffersourcenode</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-audiobuffersourcenode"> API Overview</a>
-    <li><a href="#ref-for-audiobuffersourcenode①">1.1. 
-The BaseAudioContext Interface</a>
-    <li><a href="#ref-for-audiobuffersourcenode②">1.1.2. 
-Methods</a> <a href="#ref-for-audiobuffersourcenode③">(2)</a>
-    <li><a href="#ref-for-audiobuffersourcenode④">1.4.3. 
-Methods</a>
-    <li><a href="#ref-for-audiobuffersourcenode⑤">1.6.1. 
-Attributes</a>
-    <li><a href="#ref-for-audiobuffersourcenode⑥">1.7. 
-The AudioScheduledSourceNode Interface</a>
-    <li><a href="#ref-for-audiobuffersourcenode⑦">1.7.1. 
-Attributes</a>
-    <li><a href="#ref-for-audiobuffersourcenode⑧">1.7.2. 
-Methods</a> <a href="#ref-for-audiobuffersourcenode⑨">(2)</a>
-    <li><a href="#ref-for-audiobuffersourcenode①⓪">1.9. 
-The AudioBufferSourceNode Interface</a> <a href="#ref-for-audiobuffersourcenode①①">(2)</a> <a href="#ref-for-audiobuffersourcenode①②">(3)</a> <a href="#ref-for-audiobuffersourcenode①③">(4)</a>
-    <li><a href="#ref-for-audiobuffersourcenode①④">1.9.1. 
-Constructors</a> <a href="#ref-for-audiobuffersourcenode①⑤">(2)</a>
-    <li><a href="#ref-for-audiobuffersourcenode①⑥">1.9.3. 
-Methods</a> <a href="#ref-for-audiobuffersourcenode①⑦">(2)</a> <a href="#ref-for-audiobuffersourcenode①⑧">(3)</a> <a href="#ref-for-audiobuffersourcenode①⑨">(4)</a>
-    <li><a href="#ref-for-audiobuffersourcenode②⓪">1.9.4. 
-AudioBufferSourceOptions</a>
-    <li><a href="#ref-for-audiobuffersourcenode②①">1.9.4.1. 
-Dictionary AudioBufferSourceOptions Members</a>
-    <li><a href="#ref-for-audiobuffersourcenode②②">1.9.6. 
-Playback of AudioBuffer Contents</a> <a href="#ref-for-audiobuffersourcenode②③">(2)</a> <a href="#ref-for-audiobuffersourcenode②④">(3)</a> <a href="#ref-for-audiobuffersourcenode②⑤">(4)</a> <a href="#ref-for-audiobuffersourcenode②⑥">(5)</a> <a href="#ref-for-audiobuffersourcenode②⑦">(6)</a>
-    <li><a href="#ref-for-audiobuffersourcenode②⑧">2.2. 
-Control Thread and Rendering Thread</a>
-    <li><a href="#ref-for-audiobuffersourcenode②⑨">3.1. 
-Background</a> <a href="#ref-for-audiobuffersourcenode③⓪">(2)</a>
-    <li><a href="#ref-for-audiobuffersourcenode③①">7.2. 
-Audio Buffer Copying</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="dom-audiobuffersourcenode-audiobuffersourcenode">
