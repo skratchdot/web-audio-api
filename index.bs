@@ -2286,7 +2286,7 @@ Dictionary {{OfflineAudioContextOptions}} Members</h5>
 		The sample rate for this {{OfflineAudioContext}}.
 </dl>
 
-<h4 id="OfflineAudioCompletionEvent">
+<h4 interface lt="offlineaudiocompletionevent" id="OfflineAudioCompletionEvent">
 The {{OfflineAudioCompletionEvent}} Interface</h4>
 
 This is an {{Event}} object which is dispatched to
@@ -9841,7 +9841,7 @@ created in {{AudioWorkletGlobalScope}}. These two objects
 communicate via the asynchronous message passing described in
 [[#processing-model]].
 
-<h4 interface lt="AudioWorkletGlobalScope">
+<h4 interface lt="audioworkletglobalscope" id="AudioWorkletGlobalScope">
 The {{AudioWorkletGlobalScope}} Interface</h4>
 
 This special execution context is designed to enable the
@@ -10116,7 +10116,7 @@ the <a>rendering thread</a> will invoke the algorithm below:
 		1. Empty the [=pending processor construction data=] slot.
 	</div>
 
-<h4 interface lt="AudioWorkletNode">
+<h4 interface lt="audioworkletnode" id="AudioWorkletNode">
 The {{AudioWorkletNode}} Interface</h4>
 
 This interface represents a user-defined {{AudioNode}} which
@@ -10437,7 +10437,7 @@ used to configure various channel configurations.
 			<var>node</var> to 1 and return.
 </div>
 
-<h4 interface lt="AudioWorkletProcessor">
+<h4 interface lt="audioworkletprocessor" id="AudioWorkletProcessor">
 The {{AudioWorkletProcessor}} Interface</h4>
 
 This interface represents an audio processing code that runs on the
