@@ -8,7 +8,7 @@
   <meta content="Bikeshed version c5fd42b86, updated Mon Apr 5 16:27:33 2021 -0700" name="generator">
   <link href="https://www.w3.org/TR/webaudio/" rel="canonical">
   <link href="favicon.png" rel="icon">
-  <meta content="6d1660a5ebffcbc252426aaa4b8495deb642dd1d" name="document-revision">
+  <meta content="67d1326cb29e14d37fa534c683ae0f2ef86f39c2" name="document-revision">
   <link as="script" href="https://www.w3.org/scripts/MathJax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" rel="preload">
   <link as="script" href="https://www.w3.org/scripts/MathJax/2.7.5/jax/output/HTML-CSS/jax.js?rev=2.7.5" rel="preload">
   <link as="script" href="https://www.w3.org/scripts/MathJax/2.7.5/jax/output/HTML-CSS/fonts/STIX/fontdata.js?rev=2.7.5" rel="preload">
@@ -1132,7 +1132,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
         <li><a href="#IIRFilterNode-constructors"><span class="secno">1.21.1</span> <span class="content"> Constructors</span></a>
         <li><a href="#IIRFilterNode-methods"><span class="secno">1.21.2</span> <span class="content"> Methods</span></a>
         <li>
-         <a href="#IIRFilterOptions"><span class="secno">1.21.3</span> <span class="content"> IIRFilterOptions</span></a>
+         <a href="#IIRFilterOptions"><span class="secno">1.21.3</span> <span class="content"> <code class="idl"><span>IIRFilterOptions</span></code></span></a>
          <ol class="toc">
           <li><a href="#dictionary-iirfilteroptions-members"><span class="secno">1.21.3.1</span> <span class="content"> Dictionary <code class="idl"><span>IIRFilterOptions</span></code> Members</span></a>
          </ol>
@@ -10856,7 +10856,7 @@ specified frequencies. The three parameters MUST be <code class="idl"><a data-li
      </table>
      <div> <em>Return type:</em> <code class="idl"><a data-link-type="idl" href="https://heycam.github.io/webidl/#idl-undefined" id="ref-for-idl-undefined⑤③">undefined</a></code> </div>
    </dl>
-   <h4 class="heading settled dfn-paneled idl-code" data-dfn-type="dictionary" data-export data-level="1.21.3" data-lt="iirfilteroptions" id="IIRFilterOptions"><span class="secno">1.21.3. </span><span class="content"> IIRFilterOptions</span><a class="self-link" href="#IIRFilterOptions" id="ref-for-IIRFilterOptions"></a></h4>
+   <h4 class="heading settled dfn-paneled idl-code" data-dfn-type="dictionary" data-export data-level="1.21.3" data-lt="iirfilteroptions" id="IIRFilterOptions"><span class="secno">1.21.3. </span><span class="content"> <code class="idl"><a data-link-type="idl" href="#dictdef-iirfilteroptions" id="ref-for-dictdef-iirfilteroptions①">IIRFilterOptions</a></code></span><a class="self-link" href="#IIRFilterOptions" id="ref-for-IIRFilterOptions"></a></h4>
    <p>The <code>IIRFilterOptions</code> dictionary is used to specify the
 filter coefficients of the <code class="idl"><a data-link-type="idl" href="#iirfilternode" id="ref-for-iirfilternode⑦">IIRFilterNode</a></code>.</p>
 <pre class="idl highlight def"><c- b>dictionary</c-> <dfn class="dfn-paneled idl-code" data-dfn-type="dictionary" data-export id="dictdef-iirfilteroptions"><code><c- g>IIRFilterOptions</c-></code></dfn> : <a data-link-type="idl-name" href="#dictdef-audionodeoptions" id="ref-for-dictdef-audionodeoptions①①"><c- n>AudioNodeOptions</c-></a> {
@@ -10864,7 +10864,7 @@ filter coefficients of the <code class="idl"><a data-link-type="idl" href="#iirf
   <c- b>required</c-> <a data-link-type="dfn" href="https://heycam.github.io/webidl/#idl-sequence" id="ref-for-idl-sequence⑥"><c- b>sequence</c-></a>&lt;<a class="idl-code" data-link-type="interface" href="https://heycam.github.io/webidl/#idl-double" id="ref-for-idl-double⑤⑦"><c- b>double</c-></a>> <a class="idl-code" data-link-type="dict-member" data-type="sequence<double> " href="#dom-iirfilteroptions-feedback" id="ref-for-dom-iirfilteroptions-feedback"><c- g>feedback</c-></a>;
 };
 </pre>
-   <h5 class="heading settled" data-level="1.21.3.1" id="dictionary-iirfilteroptions-members"><span class="secno">1.21.3.1. </span><span class="content"> Dictionary <code class="idl"><a data-link-type="idl" href="#dictdef-iirfilteroptions" id="ref-for-dictdef-iirfilteroptions①">IIRFilterOptions</a></code> Members</span><a class="self-link" href="#dictionary-iirfilteroptions-members"></a></h5>
+   <h5 class="heading settled" data-level="1.21.3.1" id="dictionary-iirfilteroptions-members"><span class="secno">1.21.3.1. </span><span class="content"> Dictionary <code class="idl"><a data-link-type="idl" href="#dictdef-iirfilteroptions" id="ref-for-dictdef-iirfilteroptions②">IIRFilterOptions</a></code> Members</span><a class="self-link" href="#dictionary-iirfilteroptions-members"></a></h5>
    <dl>
     <dt data-md><dfn class="dfn-paneled idl-code" data-dfn-for="IIRFilterOptions" data-dfn-type="dict-member" data-export id="dom-iirfilteroptions-feedforward"><code>feedforward</code></dfn>, <span> of type sequence&lt;<a data-link-type="idl-name" href="https://heycam.github.io/webidl/#idl-double" id="ref-for-idl-double⑤⑧">double</a>></span>
     <dd data-md>
@@ -10875,7 +10875,7 @@ filter coefficients of the <code class="idl"><a data-link-type="idl" href="#iirf
    </dl>
    <h4 class="heading settled" data-level="1.21.4" id="IIRFilterNode-filter-definition"><span class="secno">1.21.4. </span><span class="content"> Filter Definition</span><a class="self-link" href="#IIRFilterNode-filter-definition"></a></h4>
    <p>Let \(b_m\) be the <code>feedforward</code> coefficients and
-\(a_n\) be the <code>feedback</code> coefficients specified by <code class="idl"><a data-link-type="idl" href="#dom-baseaudiocontext-createiirfilter" id="ref-for-dom-baseaudiocontext-createiirfilter④">createIIRFilter()</a></code> or the <code class="idl"><a data-link-type="idl" href="#dictdef-iirfilteroptions" id="ref-for-dictdef-iirfilteroptions②">IIRFilterOptions</a></code> dictionary for the <code class="idl"><a data-link-type="idl" href="#dom-iirfilternode-iirfilternode" id="ref-for-dom-iirfilternode-iirfilternode①">constructor</a></code>. Then the
+\(a_n\) be the <code>feedback</code> coefficients specified by <code class="idl"><a data-link-type="idl" href="#dom-baseaudiocontext-createiirfilter" id="ref-for-dom-baseaudiocontext-createiirfilter④">createIIRFilter()</a></code> or the <code class="idl"><a data-link-type="idl" href="#dictdef-iirfilteroptions" id="ref-for-dictdef-iirfilteroptions③">IIRFilterOptions</a></code> dictionary for the <code class="idl"><a data-link-type="idl" href="#dom-iirfilternode-iirfilternode" id="ref-for-dom-iirfilternode-iirfilternode①">constructor</a></code>. Then the
 transfer function of the general IIR filter is given by</p>
 <pre>$$
   H(z) = \frac{\sum_{m=0}^{M} b_m z^{-m}}{\sum_{n=0}^{N} a_n z^{-n}}
@@ -24648,9 +24648,11 @@ IIRFilterOptions</a>
    <ul>
     <li><a href="#ref-for-dictdef-iirfilteroptions">1.21. 
 The IIRFilterNode Interface</a>
-    <li><a href="#ref-for-dictdef-iirfilteroptions①">1.21.3.1. 
+    <li><a href="#ref-for-dictdef-iirfilteroptions①">1.21.3. 
+IIRFilterOptions</a>
+    <li><a href="#ref-for-dictdef-iirfilteroptions②">1.21.3.1. 
 Dictionary IIRFilterOptions Members</a>
-    <li><a href="#ref-for-dictdef-iirfilteroptions②">1.21.4. 
+    <li><a href="#ref-for-dictdef-iirfilteroptions③">1.21.4. 
 Filter Definition</a>
    </ul>
   </aside>
