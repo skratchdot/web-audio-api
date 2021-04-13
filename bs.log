@@ -5,10 +5,4 @@ LINE 3230: Can't find the 'destinationNode' argument of method 'AudioNode/discon
 LINE 3243: Can't find the 'destinationNode' argument of method 'AudioNode/disconnect(destinationParam, output)' in the argumentdef block.
 LINE 3258: Can't find the 'destinationNode' argument of method 'AudioNode/disconnect(destinationParam, output)' in the argumentdef block.
 LINE 3258: Can't find the 'input' argument of method 'AudioNode/disconnect(destinationParam, output)' in the argumentdef block.
-LINE -1: Couldn't find target document section audioworklet:
-[[#audioworklet|direct script processing and synthesis]]
-LINE ~295: Couldn't find target document section audioworklet:
-[[#audioworklet|directly using scripts]]
-LINE ~325: Couldn't find target document section analysernode:
-[[#analysernode|real-time time-domain and frequency-domain analysis / music visualizer support]]
  ✔  Successfully generated, but fatal errors were suppressed
