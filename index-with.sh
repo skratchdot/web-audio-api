@@ -40,6 +40,6 @@ for i in $dictionaries; do
   echo ""
   echo "#### $num. $i:"
   echo "- https://projects.skratchdot.com/web-audio-api/index-with-both-lcase.html#$i"
-  echo "- https://projects.skratchdot.com/web-audio-api/index-with-both-lcase.html#$lcase"
+  echo "- https://projects.skratchdot.com/web-audio-api/index-with-both-lcase.html#dictdef-$lcase"
 done
 
