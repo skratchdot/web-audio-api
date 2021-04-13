@@ -8,7 +8,7 @@
   <meta content="Bikeshed version c5fd42b86, updated Mon Apr 5 16:27:33 2021 -0700" name="generator">
   <link href="https://www.w3.org/TR/webaudio/" rel="canonical">
   <link href="favicon.png" rel="icon">
-  <meta content="203318be5a13610340af914fed57719ba5564144" name="document-revision">
+  <meta content="70c973ec535c9f468af122375ca9deb165500f90" name="document-revision">
   <link as="script" href="https://www.w3.org/scripts/MathJax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" rel="preload">
   <link as="script" href="https://www.w3.org/scripts/MathJax/2.7.5/jax/output/HTML-CSS/jax.js?rev=2.7.5" rel="preload">
   <link as="script" href="https://www.w3.org/scripts/MathJax/2.7.5/jax/output/HTML-CSS/fonts/STIX/fontdata.js?rev=2.7.5" rel="preload">
@@ -810,7 +810,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Web Audio API</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2021-04-10">10 April 2021</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2021-04-13">13 April 2021</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -854,7 +854,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
 	where a number of <code class="idl"><a data-link-type="idl" href="#audionode" id="ref-for-audionode">AudioNode</a></code> objects are connected together to define the overall audio rendering.
 	The actual processing will primarily take place in the underlying implementation
 	(typically optimized Assembly / C / C++ code),
-	but <a href="#audioworklet">direct script processing and synthesis</a> is also supported.</p>
+	but <a href="#AudioWorklet">direct script processing and synthesis</a> is also supported.</p>
    <p>The <a href="#introductory">Introduction</a> section covers the motivation behind this specification.</p>
    <p>This API is designed to be used in conjunction with other APIs and elements on the web platform, notably:
 
@@ -1482,7 +1482,7 @@ to be split and merged.</p>
 peer using a <code class="idl"><a data-link-type="idl" href="#mediastreamaudiodestinationnode" id="ref-for-mediastreamaudiodestinationnode">MediaStreamAudioDestinationNode</a></code> and <a data-link-type="biblio" href="#biblio-webrtc">[webrtc]</a>.</p>
      </ul>
     <li data-md>
-     <p>Audio stream synthesis and processing <a href="#audioworklet" id="ref-for-audioworklet">directly using scripts</a>.</p>
+     <p>Audio stream synthesis and processing <a href="#AudioWorklet" id="ref-for-AudioWorklet">directly using scripts</a>.</p>
     <li data-md>
      <p><a href="#Spatialization">Spatialized audio</a> supporting a wide
 range of 3D games and immersive environments:</p>
@@ -1531,7 +1531,7 @@ Here are some examples of possible effects:</p>
     <li data-md>
      <p>Dynamics compression for overall control and sweetening of the mix</p>
     <li data-md>
-     <p>Efficient <a href="#analysernode" id="ref-for-analysernode">real-time time-domain and frequency-domain analysis / music visualizer support</a>.</p>
+     <p>Efficient <a href="#AnalyserNode" id="ref-for-AnalyserNode">real-time time-domain and frequency-domain analysis / music visualizer support</a>.</p>
     <li data-md>
      <p>Efficient biquad filters for lowpass, highpass, and other common filters.</p>
     <li data-md>
@@ -1592,7 +1592,7 @@ connections between <code class="idl"><a data-link-type="idl" href="#audionode" 
 audio sources, audio outputs, and intermediate processing modules. <code class="idl"><a data-link-type="idl" href="#audionode" id="ref-for-audionode⑥">AudioNode</a></code>s can be dynamically connected together
 in a <a href="#ModularRouting">modular fashion</a>. <code class="idl"><a data-link-type="idl" href="#audionode" id="ref-for-audionode⑦">AudioNode</a></code>s exist in the context of an <code class="idl"><a data-link-type="idl" href="#audiocontext" id="ref-for-audiocontext①">AudioContext</a></code>.</p>
     <li data-md>
-     <p>An <code class="idl"><a data-link-type="idl" href="#analysernode" id="ref-for-analysernode①⑥">AnalyserNode</a></code> interface, an <code class="idl"><a data-link-type="idl" href="#audionode" id="ref-for-audionode⑧">AudioNode</a></code> for use with music visualizers, or
+     <p>An <code class="idl"><a data-link-type="idl" href="#analysernode" id="ref-for-analysernode">AnalyserNode</a></code> interface, an <code class="idl"><a data-link-type="idl" href="#audionode" id="ref-for-audionode⑧">AudioNode</a></code> for use with music visualizers, or
 other visualization applications.</p>
     <li data-md>
      <p>An <code class="idl"><a data-link-type="idl" href="#audiobuffer" id="ref-for-audiobuffer">AudioBuffer</a></code> interface, for working with
@@ -1612,7 +1612,7 @@ such as volume.</p>
      <p>An <code class="idl"><a data-link-type="idl" href="#audiolistener" id="ref-for-audiolistener">AudioListener</a></code> interface, which works with
 a <code class="idl"><a data-link-type="idl" href="#pannernode" id="ref-for-pannernode">PannerNode</a></code> for spatialization.</p>
     <li data-md>
-     <p>An <code class="idl"><a data-link-type="idl" href="#audioworklet" id="ref-for-audioworklet①③">AudioWorklet</a></code> interface representing a
+     <p>An <code class="idl"><a data-link-type="idl" href="#audioworklet" id="ref-for-audioworklet">AudioWorklet</a></code> interface representing a
 factory for creating custom nodes that can process audio directly
 using scripts.</p>
     <li data-md>
@@ -6271,7 +6271,7 @@ values in the message.</p>
      </table>
      <div> <em>Return type:</em> <code class="idl"><a data-link-type="idl" href="https://heycam.github.io/webidl/#idl-undefined" id="ref-for-idl-undefined③⑥">undefined</a></code> </div>
    </dl>
-   <h3 class="heading settled dfn-paneled idl-code" data-dfn-type="interface" data-export data-level="1.8" data-lt="analysernode" id="AnalyserNode"><span class="secno">1.8. </span><span class="content"> The <code class="idl"><a data-link-type="idl" href="#analysernode" id="ref-for-analysernode⑦">AnalyserNode</a></code> Interface</span><a class="self-link" href="#AnalyserNode" id="ref-for-AnalyserNode"></a></h3>
+   <h3 class="heading settled dfn-paneled idl-code" data-dfn-type="interface" data-export data-level="1.8" data-lt="analysernode" id="AnalyserNode"><span class="secno">1.8. </span><span class="content"> The <code class="idl"><a data-link-type="idl" href="#analysernode" id="ref-for-analysernode⑦">AnalyserNode</a></code> Interface</span><a class="self-link" href="#AnalyserNode" id="ref-for-AnalyserNode①"></a></h3>
    <p>This interface represents a node which is able to provide real-time
 frequency and time-domain analysis information. The audio stream will
 be passed un-processed from input to output.</p>
@@ -13557,7 +13557,7 @@ not specified, the normal default is used in constructing the node.</p>
     <dd data-md>
      <p>The type of oversampling to use for the shaping curve.</p>
    </dl>
-   <h3 class="heading settled dfn-paneled idl-code" data-dfn-type="interface" data-export data-level="1.32" data-lt="audioworklet" id="AudioWorklet"><span class="secno">1.32. </span><span class="content"> The <code class="idl"><a data-link-type="idl" href="#audioworklet" id="ref-for-audioworklet④">AudioWorklet</a></code> Interface</span><a class="self-link" href="#AudioWorklet" id="ref-for-AudioWorklet"></a></h3>
+   <h3 class="heading settled dfn-paneled idl-code" data-dfn-type="interface" data-export data-level="1.32" data-lt="audioworklet" id="AudioWorklet"><span class="secno">1.32. </span><span class="content"> The <code class="idl"><a data-link-type="idl" href="#audioworklet" id="ref-for-audioworklet④">AudioWorklet</a></code> Interface</span><a class="self-link" href="#AudioWorklet" id="ref-for-AudioWorklet①"></a></h3>
    <div class="mdn-anno wrapped">
     <button class="mdn-anno-btn"><span>MDN</span></button>
     <div class="feature">
@@ -22671,6 +22671,7 @@ The AudioBufferSourceNode Interface</a>
   <aside class="dfn-panel" data-for="AnalyserNode">
    <b><a href="#AnalyserNode">#AnalyserNode</a></b><b>Referenced in:</b>
    <ul>
+    <li><a href="#ref-for-AnalyserNode"> Features</a>
     <li><a href="#ref-for-AnalyserNode">1.8. 
 The AnalyserNode Interface</a>
    </ul>
@@ -22678,7 +22679,6 @@ The AnalyserNode Interface</a>
   <aside class="dfn-panel" data-for="analysernode">
    <b><a href="#analysernode">#analysernode</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-analysernode"> Features</a>
     <li><a href="#ref-for-analysernode"> API Overview</a>
     <li><a href="#ref-for-analysernode①">1.1. 
 The BaseAudioContext Interface</a>
@@ -25798,6 +25798,7 @@ WaveShaperOptions</a>
   <aside class="dfn-panel" data-for="AudioWorklet">
    <b><a href="#AudioWorklet">#AudioWorklet</a></b><b>Referenced in:</b>
    <ul>
+    <li><a href="#ref-for-AudioWorklet"> Features</a>
     <li><a href="#ref-for-AudioWorklet">1.32. 
 The AudioWorklet Interface</a>
    </ul>
@@ -25805,7 +25806,6 @@ The AudioWorklet Interface</a>
   <aside class="dfn-panel" data-for="audioworklet">
    <b><a href="#audioworklet">#audioworklet</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-audioworklet"> Features</a>
     <li><a href="#ref-for-audioworklet"> API Overview</a>
     <li><a href="#ref-for-audioworklet①">1.1. 
 The BaseAudioContext Interface</a>
